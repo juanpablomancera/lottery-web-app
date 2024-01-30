@@ -1,0 +1,73 @@
+= Protokoll Gruppe 27
+
+Treffen am 13.12.2023
+
+Ort:      APB +
+Beginn:   13:00 Uhr +
+Ende:     14:30 Uhr
+
+__Schriftführer:__ Konrad Löhr
+
+*Nächstes Treffen:* +
+10.01.2024, 13:00 Uhr, Ort des nächsten Treffens: APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Jakub Gawronski (Scrum Master)
+- Jorge Andres Picon Colmenares
+- Juan Pablo Mancera Martinez
+- Carlos Andres Vasquez Munguia
+- Peter Pyshnyy
+- Lena Mareike Wischmann
+- Jacob Lovis Vogler
+- Konrad Löhr
+- Felix Wilde (Tutor)
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+- Bis Sonntag(17.12.) die Crosstesting Ergebnisse über das Template hinzufügen und an Felix schicken (sowohl als .adoc als auch als .pdf)
+- Jorge Carlos Mareike und Pablo fügen die Ergebnisse in die Datei ein und schicken es an Felix.
+- Bis Sonntag(14.12) sollen die Crosstesting Ergebnisse und die aufgelisteten issues(siehe unten) eingefügt sein.
+- Auch die Code-Smells sollen verbessert werden.
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+// Wie ist der Status der im letzten Sprint erstellten Issues/veteilten Aufgaben?
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue  |Aufgabe                                            |Status      |Bemerkung
+|40     |Display winning numbers in admin panel and bet details        |Closed  |...
+|16     |Add amount multiplier                                         |Closed  |...
+|15     |Change bet payment for football toto                          |Closed  |...
+|14     |Add enter lottery results                                     |Closed  |...
+|7      |Add longterm bet ticket                                       |Closed  |...
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+- Läuft!
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue  |Titel |Beschreibung |Verantwortlicher |Status
+|60  |Update the Developer Documentation  |...  |Alle  |Open
+|74  |more bet controller tests  |...  |Pablo Mancera  |Open
+|96  |Update the UI according to the "Pflichtenheft"  |...  |Jakub Gawronski  |Open
+|97  |Home Page to display lottery catalog without beeing logged in  |...  |Jakub Gawronski  |Open
+|98  |Admin can withdraw money from user  |...  |Pablo Mancera  |Open
+|99  |Refactor Betcontroller  |...  |Peter Pyshnyy, Carlos Vasquez  |Open
+|100  |Toto Bet details should display all matches on that day  |...  |Peter Pyshnyy  |Open
+|101  |Admin shouldn't be able to delete himself  |...  |Pablo Mancera  |Open
+|102  |fix that User can change Pool-Bet in Account to a non multiple of base amount  |...  |Konrad Löhr  |Open
+|===

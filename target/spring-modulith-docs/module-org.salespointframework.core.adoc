@@ -1,0 +1,13 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`org.salespointframework.core`
+|Spring components
+|_Repositories_
+
+* `o.s.c.SalespointRepository`
+
+_Others_
+
+* `o.s.c.DataInitializer` (via `o.s.c.NoOpDataInitializer`)
+|===

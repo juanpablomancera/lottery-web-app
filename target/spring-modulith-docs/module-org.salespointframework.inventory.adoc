@@ -1,0 +1,26 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`org.salespointframework.inventory`
+|Spring components
+|_Repositories_
+
+* `o.s.i.Inventory` (via `o.s.i.MultiInventory`)
+* `o.s.i.Inventory` (via `o.s.i.UniqueInventory`)
+|Aggregate roots
+|* `o.s.i.InventoryItem`
+* `o.s.i.MultiInventoryItem`
+* `o.s.i.UniqueInventoryItem`
+|Published events
+|* `o.s.i.QuantityReduced` created by:
+** `o.s.i.InventoryItem.decreaseQuantity(…)`
+* `o.s.i.StockShort` created by:
+** `o.s.i.InternalInventoryListeners.on(…)`
+
+|Events listened to
+|* `o.s.o.OrderCanceled`
+* `o.s.o.OrderCompleted`
+|Properties
+|* `salespoint.inventory.disable-updates` -- `java.lang.Boolean`, default `false`. Disable inventory updates completely, defaults to `false`.
+* `salespoint.inventory.restock-threshold` -- `o.s.q.Quantity`. The threshold at which a `InventoryEvents.StockShort` is supposed to be triggered during inventory updates.
+|===

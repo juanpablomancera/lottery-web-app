@@ -1,0 +1,20 @@
+.events-table th{
+    background-color: #ffe79d;
+    margin: 0 auto;
+}
+.events-table td{
+    background-color: #FFFAEB;
+    margin: 0 auto;
+}
+
+.home-events{
+    border-radius: 10px;
+    box-shadow: 2px 2px 7px grey;
+}
+
+.events-table{
+    color: #130E01 ;
+    font-weight: bold;
+    text-align: center;
+}
+

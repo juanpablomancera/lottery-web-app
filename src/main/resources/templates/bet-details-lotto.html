@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      th:href="@{/resources/css/style.css}"
+      rel="stylesheet"
+      href="../static/resources/css/style.css"
+      type="text/css"
+    />
+    <title>Bet Details</title>
+  </head>
+  <body>
+    <nav th:insert="~{navbar.html :: nav}"></nav>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col">
+          <h3>Bet details</h3>
+          <div class="card">
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Bet ID</th>
+                    <th th:if="${bet.getEvent() != -1}" scope="col">Draw date</th>
+                    <th scope="col">Event Type</th>
+                    <th scope="col">Pool</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Your numbers</th>
+                    <th scope="col">Winning numbers</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td th:text="${bet.id}">id</td>
+                    <td th:if="${bet.getEvent() != -1}" th:text="${bettedEvents.get(bet).getDrawDate()}">
+                      date
+                    </td>
+                    <td th:text="Lotto">type</td>
+                    <td>
+                      <div th:if="${pool == 'No Pool'}" th:text="${pool}">
+                        No Pool
+                      </div>
+                      <div
+                        th:unless="${pool == 'No Pool'}"
+                        th:text="${pool.getName()}"
+                      >
+                        Pool Name
+                      </div>
+                    </td>
+                    <td th:if="${bet.price != 0}" th:text="${bet.price}">price</td>
+                    <td th:if="${bet.price == 0.0}">Price not set</td>
+                    <td>
+                      <div style="display: flex">
+                        <p
+                          th:each="number : ${bet.getLotteryNumbers()}"
+                          th:text="${number}"
+                          style="padding-right: 8px; margin: auto 0"
+                        >
+                          selected numbers
+                        </p>
+                        <p
+                          style="padding-right: 8px; margin: auto 0"
+                          th:text="${'(' + bet.getSupernumber() + ')'}"
+                        ></p>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="display: flex">
+                        <p
+                          th:each="number : ${winningNumbers}"
+                          th:text="${number}"
+                          style="padding-right: 8px; margin: auto 0"
+                        ></p>
+                        <p
+                          style="padding-right: 8px; margin: auto 0"
+                          th:text="${'(' + winningSupernumber + ')'}"
+                        ></p>
+                      </div>
+                    </td>
+                    <td th:text="${bet.state}">state</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="profit">
+                <h4
+                  style="padding-top: 25px"
+                  th:text="${'Amount won: ' + bet.getAmountWon()}"
+                ></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

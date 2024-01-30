@@ -1,0 +1,26 @@
+@startuml
+title Welcome
+
+top to bottom direction
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container_Boundary("Application.Application_boundary", "Application", $tags="") {
+  Component(Application.Application.SalespointUserAccount, "Salespoint :: User Account", "Module", "", $tags="")
+  Component(Application.Application.Lottery, "Lottery", "Module", "", $tags="")
+  Component(Application.Application.User, "User", "Module", "", $tags="")
+  Component(Application.Application.Welcome, "Welcome", "Module", "", $tags="")
+}
+
+Rel_D(Application.Application.Lottery, Application.Application.User, "uses", $tags="")
+Rel_D(Application.Application.User, Application.Application.Lottery, "uses", $tags="")
+Rel_D(Application.Application.User, Application.Application.SalespointUserAccount, "uses", $tags="")
+Rel_D(Application.Application.Welcome, Application.Application.SalespointUserAccount, "depends on", $tags="")
+Rel_D(Application.Application.Welcome, Application.Application.User, "uses", $tags="")
+Rel_D(Application.Application.Welcome, Application.Application.Lottery, "uses", $tags="")
+Rel_D(Application.Application.Lottery, Application.Application.SalespointUserAccount, "depends on", $tags="")
+
+SHOW_LEGEND(true)
+@enduml

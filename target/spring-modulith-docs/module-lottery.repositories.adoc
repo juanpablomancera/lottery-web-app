@@ -1,0 +1,12 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`lottery.repositories`
+|Spring components
+|_Repositories_
+
+* `l.r.BetRepository`
+* `l.r.EventRepository`
+* `l.r.PoolRepository`
+* `l.r.UserRepository`
+|===

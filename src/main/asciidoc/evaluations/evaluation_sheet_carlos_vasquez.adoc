@@ -1,0 +1,46 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2023/24
+
+*Von:* Carlos Andres Vasquez Munguia
+
+*Gruppe:* 27
+
+== Was habe ich gelernt / was habe ich nicht gelernt?
+Vor allem habe ich gelernt, mit einer großen Gruppe von Menschen
+an einem komplexen Softwareprojekt zu arbeiten und dabei ein mir
+unbekanntes Framework zu verwenden. Außerdem habe ich meine
+Java-Kenntnisse weiterentwickelt, indem ich komplexeren Code als im
+letzten Semester programmiert habe. Und schließlich habe ich viel mehr
+über Git gelernt.
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+Insgesamt war die Teamarbeit recht gut. Ich denke, die Paare haben jeden
+Teil effektiv ausgeführt, und wenn jemand ein Problem hatte, haben die
+anderen immer geholfen. Obwohl es ein bisschen schwierig war, alle
+gleichzeitig mit Git zu programmieren, gab es keine größeren Probleme.
+Ich denke, dass wir dank unseres Scrum Master eine perfekte Organisation
+hatten.
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+Die Arbeit mit Spring war nicht sehr kompliziert, da man viele Informationen
+im Internet finden kann. Salespoint war jedoch sehr kompliziert. Da es
+sich um ein Framework der Universität handelt, gibt es nicht viele
+Ressourcen, um es besser zu verstehen. Trotz der Probleme haben wir es
+am Ende alle geschafft, die Frameworks zu verstehen und uns gegenseitig
+zu helfen, sie optimal zu nutzen.
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es? 
+Ich würde empfehlen, einen
+anderen Framework als Salespoint zu verwenden, da nur sehr wenige
+Informationen verfügbar sind. Außerdem denke ich, dass es den Studenten
+in ihrer Karriere mehr helfen würde, wenn sie mit einem Framework
+arbeiten würden, das von Unternehmen verwendet wird.
+
+== Feedback für den Tutor
+Ich finde, Felix war ein sehr guter Tutor. Er hat
+uns immer sehr geholfen, war sehr verständnisvoll bei unseren Problemen
+und hatte eine ausgezeichnete Kommunikation. Außerdem hat er uns klare
+Hinweise gegeben, die uns geholfen haben, unsere Aufgabe besser zu
+verstehen.
+
+== Sonstiges und Anmerkungen
+Keine

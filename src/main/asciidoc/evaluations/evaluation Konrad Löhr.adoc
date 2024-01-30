@@ -1,0 +1,44 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2021/22
+// Auch wenn der Bogen nicht anonymisiert ist, dürfen Sie gern Ihre Meinung offen kundtun.
+// Sowohl positive als auch negative Anmerkungen werden gern gesehen und zur stetigen Verbesserung genutzt.
+// Versuchen Sie in dieser Auswertung also stets sowohl Positives wie auch Negatives zu erwähnen.
+
+**Von:** Konrad Löhr
+
+**Gruppe:** 27
+
+== Was habe ich gelernt / was habe ich nicht gelernt?
+// Ausführung der positiven und negativen Erfahrungen, die im Softwarepraktikum gesammelt wurden
+
+Ich habe sehr viel über Spring Controller, Spring im allgemeinen und Webdevelopment im allgeimenen gelernt.
+Auch habe ich einen besseren Umgang mit Git gelernt, z.B. habe ich vor dem Praktikum noch nie Issues benutzt.
+Insgesammt war es sehr interessant einen Einblick in Web-Development Prozesse zu bekommen.
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+// Kurze Beschreibung der Zusammenarbeit im Team. Was lief gut? Was war verbesserungswürdig? Was würden Sie das nächste Mal anders machen?
+
+Unser Team hat sehr gut zusammengearbeitet. Ab und zu kam es zu kleineren Missverständnissen, die meiner Meinung nach auf die Tatsache zurückzuführen sind, dass nur wenige Muttersprachler Deutsch in unserem Team sind. Ansonsten hatte ich jedoch das Gefühl, dass alle Mitglieder unseres Teams sehr motiviert sind und die Zusammenarbeit dementsprechend gut verlief. Auch das Absprechen und die Arbeitseinteilung liefen problemlos.
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+// Einschätzung der Arbeit mit den bereitgestellten und zusätzlich genutzten Frameworks. Was War gut? Was war verbesserungswürdig?
+
+Spring Boot war eine leicht verständliche Bibliothek, vor allem aufgrund ihrer weiten Verbreitung. Dies erleichtert den Zugang zu zusätzlichen Informationen, beispielsweise in Foren.
+
+Sales-Point hingegen bietet genau das nicht. Da Sales-Point ausschließlich von der TU genutzt wird, gibt es kaum zusätzliches Material zur Erklärung. Die von der Universität bereitgestellten Informationen, einschließlich der Java-Docs, waren zwar ausreichend, aber oft wäre es hilfreich gewesen, weitere Informationsquellen zur Verfügung zu haben.
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+// Möglichst mit Beschreibung, warum die Umsetzung des von Ihnen angebrachten Vorschlages nötig ist.
+
+Meiner Meinung nach sollte Sales-Point durch ein anderes Framework ersetzt werden. Es gibt sehr ähnliche Frameworks, die auch in der Wirtschaft tatsächlich Anwendung finden. Ich verstehe ehrlich gesagt nicht, warum ein Uni-eigenes Framework verwendet wird. Aus meiner Sicht führt das einerseits zu einer erschwerten Arbeit im Praktikum, da es einfach keine zusätzlichen Informationen online verfügbar sind (wie zum Beispiel bei Spring). Andererseits könnte ich als Student durch die Verwendung eines anderen Frameworks meinen Wert für die Wirtschaft steigern, da ich bereits mit einem tatsächlichen Sales-Framework gearbeitet hätte, das in der Wirtschaft Verwendung findet.
+
+== Feedback für den Tutor
+// Fühlten Sie sich durch den vom Lehrstuhl bereitgestellten Tutor gut betreut? Was war positiv? Was war verbesserungswürdig?
+
+Unser Tutor hat uns wirklich perfekt betreut. Er stand auch außerhalb der Meetings immer für Rückfragen zur Verfügung und hat uns stehts gefordert ohne uns zu überfordern.
+Unser Tutor war sehr engagiert und hilfsbereit.
+Ich fand es besonders gut, dass er zu einem Produktivem Klima im Team beigetragen hat, ohne uns dabei zu viel Druck zu machen. Er ist uns stehts auf Augenhöhe begegnet und hat damit auch zu einem besseren Team-spirit beigetragen.
+
+== Sonstiges und Anmerkungen
+// Welche Aspekte fanden in den oben genannten Punkten keine Erwähnung?
+
+Ich finde die Dokumentations Arbeit ist ein bisschen ausgeartet. Ich habe sehr wenig Zeit mit dem tatsächlichen Programmieren und Bug-fixing verbracht und unglaublich viel Zeit auf die Dokumentation verwendet. Ich würde mir wünschen, dass das weniger wird.

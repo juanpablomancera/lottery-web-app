@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.w3.org/1999/xhtml"
+>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{/resources/css/placeBetStyle.css}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      th:href="@{/resources/css/welcome.css}"
+      rel="stylesheet"
+      href="../static/resources/css/welcome.css"
+      type="text/css"
+    />
+    <link
+      th:href="@{/resources/css/style.css}"
+      rel="stylesheet"
+      href="../static/resources/css/style.css"
+      type="text/css"
+    />
+    <title>Lottery Ticket</title>
+  </head>
+
+  <body>
+    <nav style="width: 100%" th:insert="~{navbar.html :: nav}"></nav>
+    <div style="padding: 0" class="container">
+      <div class="container mt-5 mb-5">
+        <div class="row mt-5 mb-3 row-cols-2 justify-content-around">
+          <div class="col-12 text-start">
+            <p class="fs-1 fst-normal fw-bold">
+              PICK YOUR <span style="color: #ff6b00">LUCKY </span>NUMBERS!
+            </p>
+          </div>
+        </div>
+        <div style="align-items: flex-start" class="row">
+          <form
+            method="post"
+            role="form"
+            th:action="@{/{eventid}/{poolid}/lottobet(eventid = ${eventid}, poolid = ${poolid})}"
+            th:object="${form}"
+            class="col-7"
+          >
+            <div th:if="${warningMessage}">
+              <p class="warning" th:text="${warningMessage}">
+                Insufficient account balance.
+              </p>
+            </div>
+            <div th:if="${!form.isValidCheckboxCount()}">
+              <p class="warning">
+                Please select exactly 6 numbers and 1 super number.
+              </p>
+            </div>
+            <div th:if="${isTooLate}">
+              <p class="warning">
+                You cannot place a bet less than 24 hours before the draw date
+                of an event.
+              </p>
+            </div>
+            <div th:if="${insufficientBalance}">
+              <p class="warning">Insufficient account balance.</p>
+            </div>
+            <div
+              class="admin-ticket-view"
+              th:if="${currentUserRole == 'ADMIN'}"
+            >
+              ADMIN VIEW. CANNOT BUY A TICKET.
+            </div>
+            <div
+              class="admin-ticket-view"
+              th:if="${currentUserRole == 'UNREGISTERED'}"
+            >
+              UNREGISTERED USER. CANNOT BUY A TICKET.
+            </div>
+            <input
+              class="buffer"
+              type="checkbox"
+              id="number-1"
+              name="number"
+              value="-1"
+              checked="true"
+            />
+            <input
+              class="buffer"
+              type="checkbox"
+              id="supernumber-1"
+              name="supernumber"
+              value="-1"
+              checked="true"
+            />
+            <div
+              class="card rounded-4 border-0"
+              style="box-shadow: 6px 6px 15px grey"
+            >
+              <div class="card-body">
+                <div class="bets-up">
+                  <div class="bets-left">
+                    <div class="card-text">
+                      <h3 style="font-weight: bold">Place a bet</h3>
+                    </div>
+                    <div class="bets-grid-container">
+                      <div class="grid-item">
+                        <p style="font-weight: bold">1</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number1"
+                          name="number"
+                          value="1"
+                          th:checked="${number1 != null} ? number1: false"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>2</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number2"
+                          name="number"
+                          value="2"
+                          th:checked="${number2 != null} ? number2: false"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>3</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number3"
+                          name="number"
+                          value="3"
+                          th:checked="${number3 != null} ? number3: false"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>4</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number4"
+                          name="number"
+                          value="4"
+                          th:checked="${number4 != null} ? number4: false"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>5</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number5"
+                          name="number"
+                          th:checked="${number5 != null} ? number5: false"
+                          value="5"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>6</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number6"
+                          name="number"
+                          th:checked="${number6 != null} ? number6: false"
+                          value="6"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>7</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number7"
+                          name="number"
+                          th:checked="${number7 != null} ? number7: false"
+                          value="7"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>8</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number8"
+                          name="number"
+                          th:checked="${number8 != null} ? number8: false"
+                          value="8"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>9</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number9"
+                          name="number"
+                          th:checked="${number9 != null} ? number9: false"
+                          value="9"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>10</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number10"
+                          name="number"
+                          th:checked="${number10 != null} ? number10: false"
+                          value="10"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>11</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number11"
+                          name="number"
+                          th:checked="${number11 != null} ? number11: false"
+                          value="11"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>12</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number12"
+                          name="number"
+                          th:checked="${number12 != null} ? number12: false"
+                          value="12"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>13</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number13"
+                          name="number"
+                          th:checked="${number13 != null} ? number13: false"
+                          value="13"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>14</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number14"
+                          name="number"
+                          th:checked="${number14 != null} ? number14: false"
+                          value="14"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>15</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number15"
+                          name="number"
+                          th:checked="${number15 != null} ? number15: false"
+                          value="15"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>16</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number16"
+                          name="number"
+                          th:checked="${number16 != null} ? number16: false"
+                          value="16"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>17</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number17"
+                          name="number"
+                          th:checked="${number17 != null} ? number17: false"
+                          value="17"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>18</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number18"
+                          name="number"
+                          th:checked="${number18 != null} ? number18: false"
+                          value="18"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>19</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number19"
+                          name="number"
+                          th:checked="${number19 != null} ? number19: false"
+                          value="19"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>20</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number20"
+                          name="number"
+                          th:checked="${number20 != null} ? number20: false"
+                          value="20"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>21</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number21"
+                          name="number"
+                          th:checked="${number21 != null} ? number21: false"
+                          value="21"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>22</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number22"
+                          name="number"
+                          th:checked="${number22 != null} ? number22: false"
+                          value="22"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>23</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number23"
+                          name="number"
+                          th:checked="${number23 != null} ? number23: false"
+                          value="23"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>24</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number24"
+                          name="number"
+                          th:checked="${number24 != null} ? number24: false"
+                          value="24"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>25</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number25"
+                          name="number"
+                          th:checked="${number25 != null} ? number25: false"
+                          value="25"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>26</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number26"
+                          name="number"
+                          th:checked="${number26 != null} ? number26: false"
+                          value="26"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>27</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number27"
+                          name="number"
+                          th:checked="${number27 != null} ? number27: false"
+                          value="27"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>28</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number28"
+                          name="number"
+                          th:checked="${number28 != null} ? number28: false"
+                          value="28"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>29</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number29"
+                          name="number"
+                          th:checked="${number29 != null} ? number29: false"
+                          value="29"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>30</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number30"
+                          name="number"
+                          th:checked="${number30 != null} ? number30: false"
+                          value="30"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>31</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number31"
+                          name="number"
+                          th:checked="${number31 != null} ? number31: false"
+                          value="31"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>32</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number32"
+                          name="number"
+                          th:checked="${number32 != null} ? number32: false"
+                          value="32"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>33</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number33"
+                          name="number"
+                          th:checked="${number33 != null} ? number33: false"
+                          value="33"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>34</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number34"
+                          name="number"
+                          th:checked="${number34 != null} ? number34: false"
+                          value="34"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>35</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number35"
+                          name="number"
+                          th:checked="${number35 != null} ? number35: false"
+                          value="35"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>36</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number36"
+                          name="number"
+                          th:checked="${number36 != null} ? number36: false"
+                          value="36"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>37</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number37"
+                          name="number"
+                          th:checked="${number37 != null} ? number37: false"
+                          value="37"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>38</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number38"
+                          name="number"
+                          th:checked="${number38 != null} ? number38: false"
+                          value="38"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>39</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number39"
+                          name="number"
+                          th:checked="${number39 != null} ? number39: false"
+                          value="39"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>40</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number40"
+                          name="number"
+                          th:checked="${number40 != null} ? number40: false"
+                          value="40"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>41</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number41"
+                          name="number"
+                          th:checked="${number41 != null} ? number41: false"
+                          value="41"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>42</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number42"
+                          name="number"
+                          th:checked="${number42 != null} ? number42: false"
+                          value="42"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>43</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number43"
+                          name="number"
+                          th:checked="${number43 != null} ? number43: false"
+                          value="43"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>44</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number44"
+                          name="number"
+                          th:checked="${number44 != null} ? number44: false"
+                          value="44"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>45</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number45"
+                          name="number"
+                          th:checked="${number45 != null} ? number45: false"
+                          value="45"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>46</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number46"
+                          name="number"
+                          th:checked="${number46 != null} ? number46: false"
+                          value="46"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>47</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number47"
+                          name="number"
+                          th:checked="${number47 != null} ? number47: false"
+                          value="47"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>48</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number48"
+                          name="number"
+                          th:checked="${number48 != null} ? number48: false"
+                          value="48"
+                        />
+                      </div>
+                      <div class="grid-item">
+                        <p>49</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="number49"
+                          name="number"
+                          th:checked="${number49 != null} ? number49: false"
+                          value="49"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div style="width: 100%" class="bets-right">
+                    <div class="card-text">
+                      <h4>Super number</h4>
+                    </div>
+                    <div class="bets-super-number">
+                      <div class="super-grid-item">
+                        <p>0</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="supernumber0"
+                          name="supernumber"
+                          th:checked="${supernumber0 != null} ? supernumber0: false"
+                          value="0"
+                        />
+                      </div>
+                      <div class="super-grid-item">
+                        <p>1</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="supernumber1"
+                          name="supernumber"
+                          th:checked="${supernumber1 != null} ? supernumber1: false"
+                          value="1"
+                        />
+                      </div>
+                      <div class="super-grid-item">
+                        <p>2</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="supernumber2"
+                          name="supernumber"
+                          th:checked="${supernumber2 != null} ? supernumber2: false"
+                          value="2"
+                        />
+                      </div>
+                      <div class="super-grid-item">
+                        <p>3</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="supernumber3"
+                          name="supernumber"
+                          th:checked="${supernumber3 != null} ? supernumber3: false"
+                          value="3"
+                        />
+                      </div>
+                      <div class="super-grid-item">
+                        <p>4</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="supernumber4"
+                          name="supernumber"
+                          th:checked="${supernumber4 != null} ? supernumber4: false"
+                          value="4"
+                        />
+                      </div>
+                      <div class="super-grid-item">
+                        <p>5</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="supernumber5"
+                          name="supernumber"
+                          th:checked="${supernumber5 != null} ? supernumber5: false"
+                          value="5"
+                        />
+                      </div>
+                      <div class="super-grid-item">
+                        <p>6</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="supernumber6"
+                          name="supernumber"
+                          th:checked="${supernumber6 != null} ? supernumber6: false"
+                          value="6"
+                        />
+                      </div>
+                      <div class="super-grid-item">
+                        <p>7</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="supernumber7"
+                          name="supernumber"
+                          th:checked="${supernumber7 != null} ? supernumber7: false"
+                          value="7"
+                        />
+                      </div>
+                      <div class="super-grid-item">
+                        <p>8</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="supernumber8"
+                          name="supernumber"
+                          th:checked="${supernumber8 != null} ? supernumber8: false"
+                          value="8"
+                        />
+                      </div>
+                      <div class="super-grid-item">
+                        <p>9</p>
+                        <input
+                          class="lotteryTicket-cb"
+                          type="checkbox"
+                          id="supernumber9"
+                          name="supernumber"
+                          th:checked="${supernumber9 != null} ? supernumber9: false"
+                          value="9"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bets-bot"
+                  th:if="${currentUserRole != 'ADMIN' && currentUserRole != 'UNREGISTERED'}"
+                >
+                  <div th:if="${poolid == -1}">
+                    <label for="longTermDuration"
+                      >Each week for the selected amount of time a bet with the
+                      given lucky numbers will be automatically bought. <br />
+                      <b>To buy a single bet just click "Confirm"</b></label
+                    >
+                    <select
+                      id="longTermDuration"
+                      class="form-select"
+                      aria-label="Default select example"
+                      name="longTermDuration"
+                    >
+                      <option value="0">
+                        Choose a long term duration for the long term bet
+                      </option>
+                      <option value="4">4 weeks</option>
+                      <option value="12">12 weeks</option>
+                      <option value="24">24 weeks</option>
+                    </select>
+                  </div>
+                  <div class="bets-submit-btn">
+                    <button
+                      style="background-color: #ffc11e"
+                      class="btn mt-2"
+                      id="lotto-submit"
+                      type="submit"
+                    >
+                      Confirm
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div
+            class="col-3 side-info"
+            style="display: flex; flex-direction: column"
+          >
+            <div
+              class="d-flex justify-content-center align-items-center flex-column"
+              style="margin-bottom: 30px"
+            >
+              <div class="card border-0" style="background-color: #fffaeb">
+                <div style="padding-top: 0" class="card-body">
+                  <h5
+                    class="card-title"
+                    style="font-weight: bold; text-align: center"
+                  >
+                    Lotto Games - Your Path to Instant Fortune
+                  </h5>
+                  <p class="pt-3 pb-3 mx-1" style="text-align: justify">
+                    Indulge in the excitement of lotto games, where a world of
+                    riches awaits. Our platform features a variety of lotto
+                    games that offer you the chance to turn a small wager into a
+                    life-changing jackpot. With easy-to-play options and
+                    multiple draws daily, the possibilities are endless. Whether
+                    you prefer classic lotto or innovative games, we have
+                    something for everyone.
+                  </p>
+                  <div class="col py-8" style="text-align: center">
+                    <a
+                      class="btn btn-light text-dark fw-bold"
+                      href="/register"
+                      sec:authorize="!isAuthenticated()"
+                      style="background-color: #ffc11e"
+                    >
+                      Place a Bet
+                    </a>
+                    <a
+                      class="btn btn-light text-dark fw-bold"
+                      href="/lottery"
+                      sec:authorize="isAuthenticated()"
+                      style="background-color: #ffc11e"
+                    >
+                      Place a Bet
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="d-flex justify-content-center align-items-center flex-column"
+            >
+              <div
+                class="card rounded-4 border-0"
+                style="background-color: #fff1c8; box-shadow: 6px 6px 15px grey"
+              >
+                <div class="card-body">
+                  <h4 class="card-title fw-bold text-center">Lotto</h4>
+                  <h6 class="card-subtitle text-body-secondary text-center">
+                    6-49
+                  </h6>
+                  <ul class="list-unstyled pt-3 pb-3 mx-1 text-left">
+                    <li>
+                      <span
+                        class="bi bi-check"
+                        style="
+                          font-weight: bold;
+                          font-size: 30px;
+                          color: #ff6b00;
+                        "
+                      ></span>
+                      Pick your lucky numbers
+                    </li>
+                    <li>
+                      <span
+                        class="bi bi-check"
+                        style="
+                          font-weight: bold;
+                          font-size: 30px;
+                          color: #ff6b00;
+                        "
+                      ></span>
+                      Win up to 1 000 000 €
+                    </li>
+                    <li>
+                      <span
+                        class="bi bi-check"
+                        style="
+                          font-weight: bold;
+                          font-size: 30px;
+                          color: #ff6b00;
+                        "
+                      ></span>
+                      A new draw every Sunday
+                    </li>
+                    <li>
+                      <span
+                        class="bi bi-check"
+                        style="
+                          font-weight: bold;
+                          font-size: 30px;
+                          color: #ff6b00;
+                        "
+                      ></span>
+                      Get just 3 numbers right to earn 10€
+                    </li>
+                  </ul>
+                  <div class="col pt-2 pb-3" style="text-align: center">
+                    <a
+                      class="btn btn-light text-dark fw-bold"
+                      href="/register"
+                      sec:authorize="!isAuthenticated()"
+                      style="background-color: #ffc11e"
+                    >
+                      Register
+                    </a>
+                    <a
+                      class="btn btn-light text-dark fw-bold"
+                      href="/lottery"
+                      sec:authorize="isAuthenticated()"
+                      style="background-color: #ffc11e"
+                    >
+                      Place a Bet
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-end">
+        <div class="col justify-content-center">
+          <footer th:insert="~{footer.html :: footer}"></footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

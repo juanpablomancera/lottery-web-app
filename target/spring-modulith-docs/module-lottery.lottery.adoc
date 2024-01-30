@@ -1,0 +1,21 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`lottery.lottery`
+|Spring components
+|_Controllers_
+
+* `l.l.LotteryController`
+
+_Services_
+
+* `l.l.Lottery` listening to `o.s.t.DayHasPassed`
+|Bean references
+|* `o.s.t.BusinessTime` (in Salespoint :: Time)
+* `l.r.EventRepository` (in Repositories)
+* `l.u.UserService` (in User)
+* `l.b.BetService` (in Bet)
+* `l.p.PoolService` (in Pool)
+|Events listened to
+|* `o.s.t.DayHasPassed`
+|===

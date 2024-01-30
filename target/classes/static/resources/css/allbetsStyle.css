@@ -1,0 +1,59 @@
+body {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  /* align-items: center; */
+  margin: 0;
+  padding: 10px 15px;
+  background-color: rgb(255, 233, 173);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.allbets-flex {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.bet-list {
+  display: flex;
+  width: 20%;
+}
+
+.bet-list > h4 {
+  margin: 0 10px;
+}
+
+.toto,
+.lotto {
+  width: 33%;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+  height: max-content;
+  text-align: center;
+  background-color: rgb(252, 238, 200);
+}
+
+td {
+  height: 30px;
+}
+
+.td-picks {
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+}
+
+.td-picks > p {
+  margin: 0;
+}

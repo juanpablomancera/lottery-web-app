@@ -1,0 +1,57 @@
+= Protokoll Gruppe 27
+
+Treffen am 10.10.2023
+
+Ort:      Ort des Treffens HSZ
+Beginn:   17:55 Uhr +
+Ende:     18:25 Uhr
+
+__Schriftführer:__ Konrad Löhr
+
+*Nächstes Treffen:* +
+13.10.2023, 11:10 Uhr, Ort des nächsten Treffens: vrstl.: Slub
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Jakub Gawronski (Scrum Master)
+- Jorge Andres Picon Colmenares
+- Juan Pablo Mancera Martinez
+- Carlos Andres Vasquez Munguia
+- Peter Pyshnyy
+- Lena Mareike Wischmann
+- Jacob Lovis Vogler
+- Konrad Löhr
+- Felix Wilde (Tutor)
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+- Jakub Gawronski wird zum Scum Master bestimmt.
+- Es wird sich auf eine Whatsapp Gruppe und Trello/Slack zur organisation der Zusammenarbeit geeinigt.
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+// Wie ist der Status der im letzten Sprint erstellten Issues/veteilten Aufgaben?
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|…     |…       |…      |…
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|…     |…     |…            |…                |…
+|===

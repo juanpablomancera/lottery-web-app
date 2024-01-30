@@ -1,0 +1,21 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`org.salespointframework.accountancy`
+|Spring components
+|_Services_
+
+* `o.s.a.Accountancy` (via `o.s.a.PersistentAccountancy`)
+
+_Event listeners_
+
+* `o.s.a.AccountancyOrderEventListener` listening to `o.s.o.OrderCanceled`, `o.s.o.OrderPaid`
+|Bean references
+|* `o.s.t.BusinessTime` (in Salespoint :: Time)
+|Aggregate roots
+|* `o.s.a.AccountancyEntry`
+* `o.s.a.OrderPaymentEntry`
+|Events listened to
+|* `o.s.o.OrderPaid`
+* `o.s.o.OrderCanceled`
+|===

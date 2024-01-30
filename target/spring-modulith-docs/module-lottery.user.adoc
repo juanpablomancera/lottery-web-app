@@ -1,0 +1,23 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`lottery.user`
+|Spring components
+|_Controllers_
+
+* `l.u.UserController`
+
+_Services_
+
+* `l.u.UserService`
+
+_Others_
+
+* `l.u.UserDataInitializer`
+|Bean references
+|* `l.l.Lottery` (in Lottery)
+* `l.b.BetService` (in Bet)
+* `l.p.PoolService` (in Pool)
+* `o.s.u.UserAccountManagement` (in Salespoint :: User Account)
+* `l.r.UserRepository` (in Repositories)
+|===

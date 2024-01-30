@@ -1,0 +1,66 @@
+= Protokoll Gruppe 27
+
+Treffen am 23.11.2023
+
+Ort:      Ort des Treffens: Online
+Beginn:   19:00 Uhr +
+Ende:     14:30 Uhr
+
+__Schriftführer:__ Konrad Löhr
+
+*Nächstes Treffen:* +
+29.11.2023, 13:00 Uhr, Ort des nächsten Treffens: APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Jakub Gawronski (Scrum Master)
+- Jorge Andres Picon Colmenares
+- Juan Pablo Mancera Martinez
+- Carlos Andres Vasquez Munguia
+- Peter Pyshnyy
+- Lena Mareike Wischmann
+- Jacob Lovis Vogler
+- Konrad Löhr
+- Felix Wilde (Tutor)
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+- Probleme mit Mocking und Testing wurden besprochen.
+- Das Feed-Back für die Zwischenpräsentation ist sehr positiv. Für die Abschlusspräsentation sollten wir mehr auf die Redezeiten achten und uns nicht von Fragen verunsichern lassen(nur weil jemand fragt, heißt das nicht, dass es falsch ist).
+- Bis Ende der Woche muss der "merged-prototype" Branch auf main sein und die alten Prototype Branches müssen gelöscht sein.
+- Die Testabdeckung muss bis Mittwoch auf mindestens 60% sein.
+- In 3 Wochen soll die Vorbereitung des Cross-Testings fertig sein
+- CrossTesting: Pflichtenheft als Pdf, ein Dokument mit Hinweisen zur Verwendung der Software(auch als pdf) und die gebaute Software. Das ganze muss als .zip verpackt und an Felix geschickt werden.
+- Für Dauertippscheine: Die Dauertippscheine sind nur für Lotto nicht für Fußballtoto möglich.
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+// Wie ist der Status der im letzten Sprint erstellten Issues/veteilten Aufgaben?
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|…     |…       |…      |…
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+
+- Die Software erfüllt noch nicht alle Muss-Kriterien und hat ca. 40% Testabdeckung.
+
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|…     |…     |…            |…                |…
+|===

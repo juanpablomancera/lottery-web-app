@@ -1,0 +1,56 @@
+= Cross-Testing Feedback
+
+__Durchführende Gruppe: 27__
+__Anwendung von Gruppe: 32__
+
+== Getestetes System
+Welche Aufgabe/Problemstellung löst die Anwendung.
+Um ihr Geschäftsmodell zu erweitern, benötigt die Buchhandlung Schiller eine Webanwendung für den Verkauf und die Verwaltung von Büchern. Die Geschäftsführerin und ihre Kollegen haben aber noch weitere Ideen: Neben der Benutzerverwaltung braucht die Anwendung auch eine Artikelverwaltung. Zu jedem Buch müssen mindestens der Autor, der Verlag, die ISBN, eine Kurzbeschreibung des Inhalts und ein Bild des Buchbandes gespeichert werden. Die Bücher in der Buchhandlung Schiller sind nach Genres in die Kategorien Belletristik, Sachbuch, Unterhaltung und Selbsthilfe unterteilt. Eine Möglichkeit, Genres später hinzuzufügen und zu bearbeiten, ist wünschenswert. Der Geschäftsführer denkt auch darüber nach, weitere Artikel wie Merchandise oder Kalender anzubieten. Es ist wünschenswert, nachträglich Kategorien hinzufügen zu können, damit das Angebot kontinuierlich um neue Artikel erweitert werden kann. Es gibt keine Unterkategorien. Die Idee ist, dass es mehrere allgemeine Kategorien gibt, wie z. B. Bücher, Kalender und Handelswaren. Artikel können mehreren Kategorien zugewiesen werden. Wenn der Shop beschließt, z.B. auch Postkarten anzubieten, sollte diese Kategorie dynamisch zur Laufzeit hinzugefügt werden können. Nach dem Hinzufügen der Kategorie sollte es natürlich auch möglich sein, den Artikel beim Hinzufügen neuer Artikel dieser Kategorie zuzuordnen. Kategorien sollen Attribute der Artikel beschreiben. Neue Kategorien sollen sowohl von Admins als auch von Mitarbeitern in das Verwaltungssystem eingepflegt werden können.
+Aufgrund der Vielfalt der angebotenen Produkte sollte dem Admin ein Inventarverwaltungssystem zur Verfügung gestellt werden. Eine Schnittstelle oder ein Import/Export-Mechanismus für die Artikelverwaltung, z.B. Formass-Updates, ist nicht erforderlich. Das Inventar wird von den Mitarbeitern manuell erfasst. Neue Bücher und Waren werden außerhalb des zu implementierenden Systems bestellt. Nach Eintreffen der Ware soll der neue Lagerbestand über ein Formular erfasst werden. Die Übersicht sollte nach vorhandenen Mengen gefiltert/sortiert werden können, damit die Mitarbeiter sehen, was nachbestellt werden muss. Die Benutzerverwaltung sollte die wichtigsten Informationen (Name, Identifikationsnummer, Lieferadresse, Bestellungen etc. Registrierte Kunden können so ihre wichtigsten Daten wie Adresse und Kontaktmöglichkeiten ändern. Innerhalb einer Benutzerverwaltung sollten Administratoren die Möglichkeit haben, neue Mitarbeiter hinzuzufügen, zu bearbeiten und zu entfernen. Bei der Kundenverwaltung haben nicht nur der Admin, sondern auch andere Mitarbeiter Zugriffsrechte, so dass sie auch Benutzerprofile einsehen können. Die Registrierung sollte für jeden offen sein, d.h. die Registrierung kann proaktiv durch den Kunden und ohne Aufsicht eines Mitarbeiters erfolgen. Allerdings müssen die Erwartungen an die Sicherheit der Benutzerprofile berücksichtigt werden. Deshalb wird bei der Registrierung eines neuen Kunden dessen Passwort anhand verschiedener Sicherheitskriterien geprüft. Daraus ergeben sich die folgenden Rollen: Admin, Mitarbeiter, unregistrierter Benutzer und registrierter Benutzer.
+Registrierte Benutzer können den Warenkorb anklicken und wählen aus, wie sie bezahlen wollen. Nach Bezahlung und Versand oder Abholung ist die schiller.Bestellung abgeschlossen. Die Bezahlung per Rechnung und Barzahlung ist ausreichend, eine weitere Integration ist nicht notwendig. Bei der Bezahlung per Rechnung ist es wichtig, dass offene Zahlungen in der Mitarbeiteransicht angezeigt und auf bezahlt gesetzt werden können, damit die Mitarbeiter wissen, was noch versendet oder abgeholt werden muss. Um den Überblick über die schiller.order- und Zahlungsabwicklung zu behalten, sollten die Mitarbeiter der Buchhandlung Schiller den Status jeder schiller.order in einer zusammengefassten Übersicht sehen können. So kann z.B. der erfolgreiche Versand und die erfolgreiche Zahlung überprüft und protokolliert werden. Bei Online-Bestellungen müssen die verkauften Artikel noch versendet werden. Dies erledigen die Mitarbeiter nach Zahlungseingang manuell und kennzeichnen den schiller.order entsprechend.
+Als zusätzliches Feature wünscht sich die Buchhandlung Schiller einen Kalender auf der Homepage, der die wöchentlichen Lesungen auflistet, die in den Räumen der Buchhandlung stattfinden. Außerdem soll es eine Übersichtsseite mit Details zu jeder Veranstaltung geben. Nutzer können sich einen Platz für eine Lesung reservieren, wenn sie bereits in der Buchhandlung Schiller angemeldet sind. Die Benutzer sollten auch die Möglichkeit haben, ihre Reservierung zu verwalten, d.h. sie zu stornieren oder zu ändern. Zu jeder Veranstaltung sollen auf der Übersichtsseite folgende Informationen angezeigt werden: Ort, Zeit, Titel und Beschreibung. Die Mitarbeiter sollten auch die Möglichkeit haben, die Veranstaltung zu bearbeiten und zu löschen. Eine weitere wichtige Information für jede Veranstaltung ist die maximale Teilnehmerzahl, die getrennt vom Raum gespeichert werden sollte, da verschiedene Veranstaltungen unabhängig vom Raum unterschiedliche Kapazitäten benötigen oder bevorzugen. Beim Anlegen von Veranstaltungen durch den Administrator kann neben dem Ort auch die maximale Kapazität angegeben werden.
+
+== Fehler-Report
+// See http://asciidoctor.org/docs/user-manual/#tables
+[options="header"]
+|===
+|Pfad |Parameter |Beschreibung |Rückgabe | Typ
+|http://localhost:8080/orders| Price |Die initialisieren Bestellungen haben keine Price | Nicht nachvollziehbar | Bemerkung
+|http://localhost:8080/inventory |Kategorien, Artikel |Als admin oder Employee kann man keine neuen Kategorien oder Artikel hinzufügen | Nicht nachvollziehbar| Muss-Kriterien
+|http://localhost:8080/showSearchOrder | Suche |Bei der Suche der Bestellungen ist es nur möglich durch Nutzernamen zu
+suchen, nicht aber durch die Artikel ID |Nicht möglich | Bemerkung
+|http://localhost:8080/index |über uns text |Der Über Uns text auf der Home Page ist ein "Lorem Ipsum" text | Nicht nachvollziehbar | Bemerkung
+|http://localhost:8080/register |Input felder |Inputfelder haben keine Checks, z.B. "123" ist eine valide Addresse und "ewewew" eine valide E-Mail | Nicht nachvollziehbar | Validierung
+|http://localhost:8080/cart/checkout |Adresse |Das Formular "ship to different address" enthält andere Daten als die Adresse des Benutzerkontos. | Nicht nachvollziehbar | Bemerkung
+|http://localhost:8080/catalog |Anzahl von Bücher |Man kann höchstens 5 Bücher auf einmal in den Warenkorb tun, dann die Seite neuladen und noch mehr Bücher hinzuaddieren | Nicht nachvollziehbar | Validierung
+|http://localhost:8080/book/{bookreference} |Buch Bewertung |Die Raitings funktionieren nicht. Das Buchraiting wird als (???) angezeigt und es gibt da auch einen Lock (1-5), was aber nirgendwo angezegt wird. | Nicht nachvollziehbar | Validierung
+|http://localhost:8080/book/{bookreference} |Buch Bewertung |Fehler, wenn man einen Kommentar schreibt, der die maximale Anzahl von Zeichen in der Eingabe erreicht hat. | Whitelabel Error |Validierung
+|http://localhost:8080/book/{bookreference} |Buch Bewertung |Es steht auch kein Name des Kommentators da, was etwas komisch ist. Ein Kommentar von einem Admin und von einem Customer sehen dadurch auch gleich aus | Nicht nachvollziehbar |Bemerkung
+|http://localhost:8080/book/{bookreference} |Mitarbeiter hinzufügen |Ein Mitarbeiter kann mit einer E-Mail-Adresse hinzugefügt werden, die ein anderer Mitarbeiter bereits hat, was zu einem Fehler führt. | Whitelabel Error |Validierung
+|http://localhost:8080/finance |TIME |Wenn man in der Finanzübersicht einen Zeitraum von mehreren Jahren auswählt gibt es so viele Bestellungen das die List das Layout verschiebt und man manche Elemente nicht mehr sehen kann |Layout Overflow | Visual Bug
+|http://localhost:8080/inventory |REORDER |Der Datentyp des Bestandes im Inventar lässt es zu sehr große Bestände zu habe. Da der Datentyp, der noch vorhanden Exemplare im Warenkorb anzeigt, ein anderer ist kommt es zu einem Overflow und der Rangecheck funktioniert nicht mehr | Whitelabel Error | Validierung
+|http://localhost:8080/register} |Registrierung|Ein User kann sich registierien mit eine bereits existierende email, was zu einem Fehler führt| Whitelabel Error |Validierung
+|http://localhost:8080/cart/checkout |Buch Bestellung |Die "Thank You" Nachricht, die nach einer Bestellung kriegt, fehlt noch| Nicht nachvollziehbar | Bemerkung
+|http://localhost:8080/finance |Finance |Finance zeigt nicht by default die aktuelle Systemzeit, weshalb man jedes mal erst die richtigen Zeitintervalle einstellen muss, bevor man die eigentliche Info sehen kann| Nicht nachvollziehbar | Bemerkung
+|http://localhost:8080/time |Time |User könne die Systemzeit verändern| Nicht nachvollziehbar | Technische Bug
+|http://localhost:8080/orderdetail{orderid} |Details |Bei Lieferungen wird die Adresse in den Details nicht angezeigt| Nicht nachvollziehbar | Bemerkung
+|http://localhost:8080/catalog |Book Covers |Bilder haben feste Breite, sodass die Seite überfüllt wird oder Bilder teilweise nicht sichtbar sind | Nicht nachvollziehbar |Bemerkung
+|http://localhost:8080/book/{bookid} |Book Details |Publisher, ISBN und Klappentext fehlen | Nicht nachvollziehbar |Bemerkung
+|http://localhost:8080/book/{bookid} |Kommentare |Es können von Usern unendlich viele Kommentare geschrieben werden. Auch Admins und Mitarbeiter können Kommentare schreiben. |Nicht nachvollziehbar |Validierung
+|http://localhost:8080/register |Registrierung |Nach der Registrierung wird man nicht eingeloggt, sondern auf die Homepage weitergeleitet. |Nicht nachvollziehbar |Bemerkung
+|http://localhost:8080/finance |Jahreszahlen |Für die Jahreszahlen können negative Werte eingegeben werden und die zweite Jahreszahl kann kleiner als die erste sein. |Nicht nachvollziehbar |Bemerkung
+
+
+
+|===
+
+== Sonstiges
+* Das Firmenzeichen "SCHILLER" hat ein position von “fixed” und bewegt sich nicht wenn man
+die Seite bewegt, aber es ist ein Kind-Element von “navigation” die sich doch
+bewegt was mach kein Sinn. Noch dazu, wegen diese Positionierung es überfüllt
+mit verschiedene Elementen.
+*  Die Seite ist teilweise auf Englisch und teilweise auf Deutsch.
+*  Styles sind inkonsistent (verschiedene Seitenlayouts, Fonts, Paddings, ...)
+
+== Verbesserungsvorschläge
+Wir würden empfehlen, den visuellen Teil etwas zu verbessern, d.h. den Kontrast der Farben und die Organisation der Elemente, zusammen mit der Implementierung von nur einer Sprache, entweder Deutsch oder Englisch. Wir sind der Meinung, dass es von grundlegender Bedeutung ist, jede Eingabe von Werten durch die Benutzer zu validieren, da wir festgestellt haben, dass dadurch mehrere Fehler entstanden sind. Abgesehen von diesen kleinen Tipps und der Verbesserung der in der Tabelle beschriebenen Fehler ist die Software gut gemacht und funktioniert.

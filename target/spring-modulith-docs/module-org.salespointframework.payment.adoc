@@ -1,0 +1,12 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`org.salespointframework.payment`
+|Value types
+|* `o.s.p.Cash`
+* `o.s.p.Cheque`
+* `o.s.p.CreditCard`
+* `o.s.p.DebitCard`
+* `o.s.p.PaymentCard`
+* `o.s.p.PaymentMethod`
+|===

@@ -1,0 +1,77 @@
+= Protokoll Gruppe 27
+
+Treffen am 08.11.2023
+
+Ort:      Ort des Treffens: APB
+Beginn:   13:00 Uhr +
+Ende:     14:30 Uhr
+
+__Schriftführer:__ Konrad Löhr
+
+*Nächstes Treffen:* +
+15.11.2023, 13:00 Uhr, Ort des nächsten Treffens: APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Jakub Gawronski (Scrum Master)
+- Jorge Andres Picon Colmenares
+- Juan Pablo Mancera Martinez
+- Carlos Andres Vasquez Munguia
+- Peter Pyshnyy
+- Lena Mareike Wischmann
+- Jacob Lovis Vogler
+- Konrad Löhr
+- Felix Wilde (Tutor)
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+- Die Entwicklerdokumentation muss bis Sonntag fertig sein!
+- Die Entwicklerdokumentation wird wie folgt aufgeteilt:
+- Jede Gruppe macht sein Domänenspezifisches Klassendiagramm(Package) und Sequenzdiagramm, welches die relvantesten Interaktionen darstellt. An dem Treffen am Freitag wird die Entwicklerdokumentation weiter aufgeteilt.
+
+-------
+
+- Für die Zwischenpräsentation soll mit Datainitializer gearbeitet werden (also es soll Users, Bets und Pools bereits geben(User Stories!))
+- Präsentationstermin: Die Planung des Termin's ist sehr kompliziert aufgrund vieler Aktöre. Der Rahmen des Termins ist Ende der Woche. Näheres wird von Felix bekanntgegeben.
+- Bis zur Zwischenpräsentation müssen die Prototypen gemergt sein und es muss ein zusammengesetzter Prototyp existieren.
+- Für die Zwischenpräsentation haben wir 30 Minuten Zeit. Die ersten 10 Minuten wird das grobe Problem erklärt(Analyse) und wie wir es lösen/lösen wollen. Dann gibt es 10 Minuten für den Anwendungsprototypen mit Userstory der die Funktionalität zeigt.(z.B ein User der eine Wette abschließt und einen Pool beitritt und ein Admin, der user verwaltet) die letzten 10 Minuten stehen für Diskussion und Rückfragen zur verfügen.
+- Es sollten 2 Leute die ersten 10 Minuten übernehmen. Weitere 2 Leute die mittleren 10 Minuten und die letzten 10 Minuten werden von den restlichen 4 Leuten übernommen.
+- BEI PRÄSENTATION MUSS EINIGKEIT HERSCHEN!!!!
+- Der erste Teil der Präsentation muss als Powerpoint sein. Dazu gehört auch ein Überblick über die Domäne, dann Entwurfsentscheidungen der gesammt Domäne und der Teildomänen. Welche Probleme gab es (Nur große Punkte der Gesammtdomäne)
+- Keine UML Tapete (also nicht nur UML Diagramme), sondern vereinfachte Diagramme die auch wirklich erklärt werden.
+- Autofill und Datainitializer sollten für den zweiten Teil unbedingt genutzt werden!!! (keine Standard Userstories wie Login)
+- Es wird wie folgt aufgeteilt:
+- erster Teil: Konrad + Mareike
+- zweiter Teil: Jakub + Peter
+- dritter Teil: Jorgé + Carlos + Pablo + Jacob
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+// Wie ist der Status der im letzten Sprint erstellten Issues/veteilten Aufgaben?
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|…     |…       |…      |…
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+- Pflichtenheft ist fertig.
+- Domänenweise Prototypen sind fertig.
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|…     |…     |…            |…                |…
+|===

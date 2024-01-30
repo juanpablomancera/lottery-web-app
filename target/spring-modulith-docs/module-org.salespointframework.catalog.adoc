@@ -1,0 +1,11 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`org.salespointframework.catalog`
+|Spring components
+|_Repositories_
+
+* `o.s.c.Catalog`
+|Aggregate roots
+|* `o.s.c.Product`
+|===

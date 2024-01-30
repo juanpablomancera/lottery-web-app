@@ -1,0 +1,37 @@
+Feedback
+
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2021/22
+// Auch wenn der Bogen nicht anonymisiert ist, dürfen Sie gern Ihre Meinung offen kundtun.
+// Sowohl positive als auch negative Anmerkungen werden gern gesehen und zur stetigen Verbesserung genutzt.
+// Versuchen Sie in dieser Auswertung also stets sowohl Positives wie auch Negatives zu erwähnen.
+
+**Von:**
+Jacob Vogler
+
+**Gruppe:**
+SWT23W27
+
+== Was habe ich gelernt / was habe ich nicht gelernt?
+Besonders hervorgestochen sind für mich die Erfahrungen im Bereich Teamwork und Organisation.
+Das zusammenarbeiten in der Gruppe hat gezeigt welche Skills nötig sind um Probleme und Ideen zu kommuniziere.
+Auch die Erfahrungen mit git in einem größeren Team waren sehr hilfreich. Hier konnte ich mein Wissen vertiefen und festigen. 
+Die umfassende Arbeit mit den Tools hat viele Möglichkeiten geboten zu lernen sich in einem großen Softwareprojekt zurechtzufinden. Gelernte habe ich auch wie man sich in unbekannte Frameworks einarbeitet.
+// Ausführung der positiven und negativen Erfahrungen, die im Softwarepraktikum gesammelt wurden
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+Die Arbeit im Team hat allgemein sehr gut funktioniert. Wir hatten im allgemeinen sehr ähnlich Vorstellungen von Arbeitsaufwand und Qualität. Es gab keine nennenswerten Meinungsverschiedenheit. Im späteren Verlauf des Praktikums war die Aufgaben Verteilung und Kommunikation sehr eingespielt. Nicht ganz so gut lief die gleichmäßige Verteilung der Arbeitslast. Dies ist allerdings nicht der Faulheit sondern eher der Übereifrigkeit einiger(auch meiner) geschuldet. 
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+Bei der Verwendung von Spring und Maven hatte ich keine Probleme. Im allgemeinen finde ich die vorbereiteten Materialien sehr gut. Beim Videoshop gab es kleine Unstimmigkeiten mit den Vorgeschlagenen aufgaben, hier waren einige Features schon implementiert. SalesPoint ist sehr praktikabel aber schlecht Dokumentiert. Einige simple Sätze hier und da würden es deutlich einfacher mache sich einzuarbeiten.
+Probleme hatten wir mit dem Usersystem. Wir haben keinen komfortablen Weg gefunden den UserAccount zu erweitern. Wir habe uns entschieden einen UserAccount im User zu hinterlegen. Dies hat z.B. die Funktion findUserByAccountIdentifier sehr verkompliziert. 
+Es wäre auch schon das Passwortsystem unabhängig vom UserAccount verwenden zu können. Die Funktionen zum ver- und entschlüsseln sollten in irgendeiner Art bereitgestellt werden. 
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+Meiner Meinung nach sollte etwas mehr darauf geachtet werden das die Leistungsansprüche zwischen den Gruppen einigermaßen gleich sind.
+// Möglichst mit Beschreibung, warum die Umsetzung des von Ihnen angebrachten Vorschlages nötig ist.
+
+== Feedback für den Tutor
+Ich war sehr zufrieden, mit unserem Tutor. Die Kommunikation war sehr ausgewogene und fragen wurde immer gut beantwortet. Inhaltlich hat er uns auch gut beraten können. Der Hinweis zur Verwendung der Issues auf GitHub hätte etwas früher kommen können. 
+
+== Sonstiges und Anmerkungen
+// Welche Aspekte fanden in den oben genannten Punkten keine Erwähnung?

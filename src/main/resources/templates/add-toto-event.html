@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+    />
+    <link
+            th:href="@{/resources/css/style.css}"
+            rel="stylesheet"
+            href="../static/resources/css/style.css"
+            type="text/css"
+    />
+
+    <link
+            th:href="@{/resources/css/adminPanel.css}"
+            rel="stylesheet"
+            href="../static/resources/css/style.css"
+            type="text/css"
+    />
+    <title>Toto event creator</title>
+    <style>
+        body {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<nav th:insert="~{navbar.html :: nav}"></nav>
+<div class="container mx-auto mt-2" style="max-width: 600px">
+    <h3>Add Toto Event</h3>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form method="post" role="form" id="form" th:action="@{/toto}" th:object="${form}">
+                <div th:if="${!form.getIsDateValidFrontendValue()}">
+                    <p class="warning">
+                        Please select a valid date.
+                    </p>
+                </div>
+                <label for="start-date" class="form-label">Select a start date (first match day)</label>
+                <input id="start-date" class="form-control" type="date" name="start-date" th:field="*{startDate}"
+                       aria-describedby="dateTip"/><br/>
+                <label for="draw-date" class="form-label">Select a draw date</label>
+                <input id="draw-date" class="form-control" type="date" name="draw-date" th:field="*{drawDate}"
+                       aria-describedby="dateTip"/><br/>
+                <input class="btn btn-primary" type="submit" value="Submit and prepopulate with 18 matches"/>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row align-items-end">
+        <div class="col justify-content-center">
+            <footer th:insert="~{footer.html :: footer}"></footer>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous">
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+@startuml
+title Salespoint :: Inventory
+
+top to bottom direction
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container_Boundary("Application.Application_boundary", "Application", $tags="") {
+  Component(Application.Application.SalespointQuantity, "Salespoint :: Quantity", "Module", "", $tags="")
+  Component(Application.Application.SalespointOrder, "Salespoint :: Order", "Module", "", $tags="")
+  Component(Application.Application.SalespointInventory, "Salespoint :: Inventory", "Module", "", $tags="")
+  Component(Application.Application.SalespointCore, "Salespoint :: Core", "Module", "", $tags="")
+  Component(Application.Application.SalespointCatalog, "Salespoint :: Catalog", "Module", "", $tags="")
+}
+
+Rel_D(Application.Application.SalespointCatalog, Application.Application.SalespointCore, "depends on", $tags="")
+Rel_D(Application.Application.SalespointCatalog, Application.Application.SalespointQuantity, "depends on", $tags="")
+Rel_D(Application.Application.SalespointOrder, Application.Application.SalespointCatalog, "depends on", $tags="")
+Rel_D(Application.Application.SalespointOrder, Application.Application.SalespointQuantity, "depends on", $tags="")
+Rel_D(Application.Application.SalespointOrder, Application.Application.SalespointCore, "depends on", $tags="")
+Rel_D(Application.Application.SalespointInventory, Application.Application.SalespointOrder, "listens to", $tags="")
+Rel_D(Application.Application.SalespointInventory, Application.Application.SalespointCatalog, "depends on", $tags="")
+Rel_D(Application.Application.SalespointInventory, Application.Application.SalespointQuantity, "depends on", $tags="")
+Rel_D(Application.Application.SalespointInventory, Application.Application.SalespointCore, "depends on", $tags="")
+
+SHOW_LEGEND(true)
+@enduml

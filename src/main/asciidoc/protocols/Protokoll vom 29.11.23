@@ -1,0 +1,60 @@
+= Protokoll Gruppe 27
+
+Treffen am 029.11.2023
+
+Ort:      Ort des Treffens: APB
+Beginn:   13:00 Uhr +
+Ende:     14:30 Uhr
+
+__Schriftführer:__ Konrad Löhr
+
+*Nächstes Treffen:* +
+06.11.2023, 13:00 Uhr, Ort des nächsten Treffens: APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Jakub Gawronski (Scrum Master)
+- Jorge Andres Picon Colmenares
+- Juan Pablo Mancera Martinez
+- Carlos Andres Vasquez Munguia
+- Peter Pyshnyy
+- Lena Mareike Wischmann
+- Jacob Lovis Vogler
+- Konrad Löhr
+- Felix Wilde (Tutor)
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+- Bis Sonntag (03.12.) muss alles auf den Main gemergt sein!!!
+- Sonntag 10.12. muss OOP 2 fertig sein, also ALLE muss-Kriterien (Aufteilung siehe Slack) und Cross-Testing-Dokumente.
+
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+// Wie ist der Status der im letzten Sprint erstellten Issues/veteilten Aufgaben?
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|…     |…       |…      |…
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+- Pflichtenheft ist fast fertig.
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|…     |…     |…            |…                |…
+|===

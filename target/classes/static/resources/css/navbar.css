@@ -1,0 +1,12 @@
+.my-navbar .nav-item .nav-link{
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.login-item{
+    background-color: #FFE79D;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 6px ;
+}

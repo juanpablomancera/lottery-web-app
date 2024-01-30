@@ -1,0 +1,22 @@
+footer {
+    color: black;
+}
+
+li a{
+  color: black;
+    font-weight: bold;
+}
+
+.ul-class{
+    text-align: left;
+    list-style: none;
+}
+
+.ul-creators{
+    font-style: italic;
+}
+
+.container-footer{
+    outline: 5px solid #FFFAEB;
+    border-radius: 12px;
+}

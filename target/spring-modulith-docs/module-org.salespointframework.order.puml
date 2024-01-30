@@ -1,0 +1,31 @@
+@startuml
+title Salespoint :: Order
+
+top to bottom direction
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container_Boundary("Application.Application_boundary", "Application", $tags="") {
+  Component(Application.Application.SalespointQuantity, "Salespoint :: Quantity", "Module", "", $tags="")
+  Component(Application.Application.SalespointOrder, "Salespoint :: Order", "Module", "", $tags="")
+  Component(Application.Application.SalespointUserAccount, "Salespoint :: User Account", "Module", "", $tags="")
+  Component(Application.Application.SalespointPayment, "Salespoint :: Payment", "Module", "", $tags="")
+  Component(Application.Application.SalespointCore, "Salespoint :: Core", "Module", "", $tags="")
+  Component(Application.Application.SalespointCatalog, "Salespoint :: Catalog", "Module", "", $tags="")
+  Component(Application.Application.SalespointTime, "Salespoint :: Time", "Module", "", $tags="")
+}
+
+Rel_D(Application.Application.SalespointCatalog, Application.Application.SalespointCore, "depends on", $tags="")
+Rel_D(Application.Application.SalespointCatalog, Application.Application.SalespointQuantity, "depends on", $tags="")
+Rel_D(Application.Application.SalespointUserAccount, Application.Application.SalespointCore, "depends on", $tags="")
+Rel_D(Application.Application.SalespointOrder, Application.Application.SalespointCatalog, "depends on", $tags="")
+Rel_D(Application.Application.SalespointOrder, Application.Application.SalespointQuantity, "depends on", $tags="")
+Rel_D(Application.Application.SalespointOrder, Application.Application.SalespointUserAccount, "depends on", $tags="")
+Rel_D(Application.Application.SalespointOrder, Application.Application.SalespointCore, "depends on", $tags="")
+Rel_D(Application.Application.SalespointOrder, Application.Application.SalespointPayment, "depends on", $tags="")
+Rel_D(Application.Application.SalespointOrder, Application.Application.SalespointTime, "uses", $tags="")
+
+SHOW_LEGEND(true)
+@enduml

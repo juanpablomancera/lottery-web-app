@@ -1,0 +1,12 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`lottery.welcome`
+|Spring components
+|_Controllers_
+
+* `l.w.WelcomeController`
+|Bean references
+|* `l.u.UserService` (in User)
+* `l.l.Lottery` (in Lottery)
+|===

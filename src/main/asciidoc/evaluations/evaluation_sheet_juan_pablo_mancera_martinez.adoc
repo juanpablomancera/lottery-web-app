@@ -1,0 +1,47 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2023/24
+// Auch wenn der Bogen nicht anonymisiert ist, dürfen Sie gern Ihre Meinung offen kundtun.
+// Sowohl positive als auch negative Anmerkungen werden gern gesehen und zur stetigen Verbesserung genutzt.
+// Versuchen Sie in dieser Auswertung also stets sowohl Positives wie auch Negatives zu erwähnen.
+
+**Von:** Juan Pablo Mancera Martínez
+
+**Gruppe:** 27
+
+== Was habe ich gelernt / was habe ich nicht gelernt?
+// Ausführung der positiven und negativen Erfahrungen, die im Softwarepraktikum gesammelt wurden
+* Ich denke, das Wichtigste, was ich in diesem Projekt gelernt habe, ist, mit mehreren Leuten an einem "relativ" großen Projekt zu arbeiten, da man in anderen Modulen immer alleine programmiert. Das hat mir geholfen, mehr über Technologien wie Git und Github für die gemeinsame Arbeit zu lernen (Arbeiten an verschiedenen Branches, Öffnen von Issues, Lösen von Konflikten zwischen Branches...).
+* Ich habe auch mein Wissen über das Testen erweitert, da die Komplexität der Tests in diesem Projekt viel höher ist als in Softwaretechnologie.
+* Ich habe auch gelernt, wie man an einem Projekt mit einem Framework (salespoint) arbeitet, das ich bis dahin noch nicht kannte, da so etwas zum Beispiel in einem Job passieren kann.
+* Ich habe auch gelernt, wie man eine Dokumentation für ein Softwareprojekt in einer Gruppe schreibt (z. B. dass mehrere Leute verschiedene Lösungen finden), sie anschließend verfolgt und bei Bedarf Änderungen vornimmt.
+* Wie man Java-Dokumentation mit javadoc schreibt
+* Ich habe auch gelernt, den Code anderer Leute zu lesen und ihn mit meinem eigenen Code umzusetzen.
+* Im Zusammenhang mit dem vorherigen Punkt habe ich gelernt, eine von jemand anderem vorgenommene Änderung zu überprüfen und ein pull-request zu akzeptieren.
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+// Kurze Beschreibung der Zusammenarbeit im Team. Was lief gut? Was war verbesserungswürdig? Was würden Sie das nächste Mal anders machen?
+Zunächst dachte ich, dass die Teamarbeit der schwierigste Teil des Projekts sein würde.
+Insgesamt war die Zusammenarbeit mit all meinen Kollegen eine sehr positive Erfahrung. In der Entwurfsphase hatten wir lange Sitzungen, in denen wir die Details besprachen, aber am Ende kamen wir immer zu einer Einigung. Es ist erwähnenswert, dass jeder zu jeder Zeit seinen Teil der Arbeit geleistet hat. Wenn zum Beispiel beim Programmieren eine Person etwas kaputt gemacht hat, das eine andere gemacht hat, hat die Person, die es kaputt gemacht hat, es immer repariert.
+Ich hebe auch die gute Kommunikation von Jakub als Scrum Master hervor.
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+// Einschätzung der Arbeit mit den bereitgestellten und zusätzlich genutzten Frameworks. Was War gut? Was war verbesserungswürdig?
+Am Anfang war es schwierig, mit Salespoint und Thymeleaf zusammenzuarbeiten, weil ich sie nicht kannte.
+Was Salespoint betrifft, so finde ich, dass die Dokumentation in einigen Fällen etwas spärlich ist. Auch ist das Framework in einigen Fällen zu unflexibel, insbesondere die mangelnde Flexibilität bei der Verwaltung von Benutzern (z. B. die Tatsache, dass man sie aus dem Repository selbst entfernen und im UsersAccountManager deaktivieren muss, um einen Benutzer zu löschen).
+In Bezug auf Thymeleaf hat mir die Verwendung dieses Frameworks gefallen, weil es z.B. die Verwendung von if-Anweisungen und Schleifen innerhalb von HTML ermöglicht, da ich bisher nur reines HTML kannte. Die Dokumentation war in diesem Fall umfangreicher und da es sich nicht um ein Framework der Universität selbst handelt, waren die verfügbaren Informationen viel umfangreicher (was die Arbeit sehr erleichtert).
+Bei SpringBoot handelte es sich um ein Framework, das ich bereits kannte (ich hatte bereits mit Repositories, Entitäten und Datenbanken wie H2 gearbeitet).
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+// Möglichst mit Beschreibung, warum die Umsetzung des von Ihnen angebrachten Vorschlages nötig ist.
+* Ich würde empfehlen, die Folien vor Beginn des Praktikums gründlich zu überprüfen, da in einem Fall das Datum eines Meilensteins auf den Folien nicht mit dem Datum übereinstimmte, das der Tutor hatte.
+* Ich denke, dass die Abschaffung von Gruppen und die Umverteilung von Personen ein Fehler war, da einer der Schlüssel zu einem erfolgreichen Projekt darin besteht, dass man sich innerhalb der Gruppe gut versteht.
+*  Ich denke, der Umfang der zu erstellenden Dokumentation könnte reduziert werden. Zum Beispiel ist der Entwurf der Hauptarchitektur der Anwendung notwendig, aber andererseits ist es unnötig, alle User Stories so detailliert zu beschreiben.
+
+== Feedback für den Tutor
+// Fühlten Sie sich durch den vom Lehrstuhl bereitgestellten Tutor gut betreut? Was war positiv? Was war verbesserungswürdig?
+ * Meine Bewertung des Tutors ist sehr gut. Von Anfang an hat er alles, was wir in den Sitzungen zu tun hatten, sehr klar erklärt (vor allem zu Beginn, um alle Softwareanforderungen zu verstehen, die wir zu erfüllen hatten) und hat den Rest der Woche unsere Fragen beantwortet, wenn wir welche hatten. Er war auch jederzeit flexibel.
+Ich denke, es gibt nichts zu verbessern.
+
+== Sonstiges und Anmerkungen
+// Welche Aspekte fanden in den oben genannten Punkten keine Erwähnung?
+Keine
+

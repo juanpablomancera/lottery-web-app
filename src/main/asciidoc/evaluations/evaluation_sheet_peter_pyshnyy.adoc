@@ -1,0 +1,36 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2021/22
+// Auch wenn der Bogen nicht anonymisiert ist, dГјrfen Sie gern Ihre Meinung offen kundtun.
+// Sowohl positive als auch negative Anmerkungen werden gern gesehen und zur stetigen Verbesserung genutzt.
+// Versuchen Sie in dieser Auswertung also stets sowohl Positives wie auch Negatives zu erwГ¤hnen.
+
+**Von: Peter Pyshnyy**
+
+**Gruppe: 27**
+
+== Was habe ich gelernt / was habe ich nicht gelernt?
+// AusfГјhrung der positiven und negativen Erfahrungen, die im Softwarepraktikum gesammelt wurden
+Auf der technischen Seite habe ich gelernt, wie man mit mehreren Frameworks auf einmal arbeitet, wie man einen besseren Code schreibt und schneller nach Lösungen sucht und vor allem, wie man einen verständlichen und nachhaltigen Code schreibt. Das letzte ist auch sehr wichtig beim Arbeiten im Team, was ich auch lernen musste.
+Ich wünschte ich hätte mehr gelernt, wie man mit Datenbanken umgeht, da mir in diesem Bereich noch viel Wissen fehlt, aber im Endeffekt habe ich an anderen Sachen gearbeitet.
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+// Kurze Beschreibung der Zusammenarbeit im Team. Was lief gut? Was war verbesserungswГјrdig? Was wГјrden Sie das nГ¤chste Mal anders machen?
+Es ist gleichzeitig schwieriger als gedacht, aber auch viel einfacher. Man hat sehr viele Meinungen, welche man wahrnehmen muss, jedes Teammitglied hat seine Stärken, Schwächen und Probleme, mit den man lernen muss zu arbeiten. Aber das gleiche gilt auch für mich. Deswegen, ist hat es mir trotz allem gefallen im Team zu arbeiten, weil jeder jeden unterschtützt hat und bei Problemen gab es immer Hilfe. 
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+// EinschГ¤tzung der Arbeit mit den bereitgestellten und zusГ¤tzlich genutzten Frameworks. Was War gut? Was war verbesserungswГјrdig?
+Wie oben erwehnt, habe ich weniger mit den Datenbanken gearbeitet, weshalb ich mich nicht viel mit SalesPoint beschäftigt habe, aber von dem was ich von meinen Teammitgliedern gehört habe, ist es etwas veraltet.
+
+Die Kombination von Spring und Thymeleaf fand ich sehr toll. Das war meine erste erfahrung in so einer Art back- und frontend zu verbinden und es war mir ein Vergnügen.
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+Den Arbeitsaufwand etwas konsistenter zu machen. Es gab Wochen, an denen man 10h an einem Tag gearbeitet hat und dann gab es Wochen, an denen man fast nichts machen musste.
+Eventuell mehr interaktion zwischen verschiedenen Gruppen, um mehr Feedback zu sammeln. Ansonsten, dass 
+// MГ¶glichst mit Beschreibung, warum die Umsetzung des von Ihnen angebrachten Vorschlages nГ¶tig ist.
+
+== Feedback für den Tutor
+Felix ist super. Er hat alles sehr gut erklärt und was sehr hilfreich und verständnisvoll die ganze Zeit. Dieser Tutor hat unserem Team perfekt gepasst.
+// FГјhlten Sie sich durch den vom Lehrstuhl bereitgestellten Tutor gut betreut? Was war positiv? Was war verbesserungswГјrdig?
+
+== Sonstiges und Anmerkungen
+Nein
+// Welche Aspekte fanden in den oben genannten Punkten keine ErwГ¤hnung?

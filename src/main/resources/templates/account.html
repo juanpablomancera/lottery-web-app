@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.w3.org/1999/xhtml"
+>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      th:href="@{/resources/css/style.css}"
+      rel="stylesheet"
+      href="../static/resources/css/style.css"
+      type="text/css"
+    />
+
+    <link
+      th:href="@{/resources/css/account.css}"
+      rel="stylesheet"
+      href="../static/resources/css/style.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+    <title>Account</title>
+  </head>
+  <body>
+    <nav th:insert="~{navbar.html :: nav}"></nav>
+    <div class="container d-flex" th:if="${notices gt 0}">
+      <p>
+        You have been given <b th:text="${notices}"></b> notice(s) for
+        insufficient funding! Please make sure your Account Balance is always
+        sufficient for all open Toto Bets
+      </p>
+    </div>
+    <div
+      class="container"
+      sec:authorize="not hasAnyRole('ADMIN') and isAuthenticated()"
+    >
+      <div class="row">
+        <div class="col-2">
+          <div class="side-menu">
+            <div class="side-menu-item highlight mb-4">
+              <span>
+                <i class="bi bi-person-fill"></i>
+                <span th:text="${currentUserName}"></span>
+              </span>
+            </div>
+            <ul class="list-group list-group-flush" th:each="pool : ${pools}">
+              <li class="side-menu-item">
+                <span>
+                  <i
+                    th:if="${currentUserId == pool.poolChef.id}"
+                    class="bi bi-star-fill"
+                  ></i>
+                  <i
+                    th:if="${currentUserId != pool.poolChef.id}"
+                    class="bi bi-people-fill"
+                  ></i>
+                  <a
+                    th:href="@{/pool/{id}(id=${pool.id})}"
+                    th:text="${pool.name}"
+                  ></a>
+                </span>
+              </li>
+            </ul>
+            <ul class="list-group list-group-flush">
+              <li class="side-menu-item">
+                <span>
+                  <i class="bi bi-box-arrow-in-right"></i>
+                  <a th:href="@{/join}">Join pool</a>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col-3">
+              <div class="card bg-secondary">
+                <div class="card-title">
+                  <h5><i class="bi bi-piggy-bank-fill"></i> Balance</h5>
+                </div>
+                <div class="card-body">
+                  <b th:text="${accountBalance}"></b>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="card bg-secondary">
+                <div class="card-title">
+                  <h5><i class="bi bi-bank2"></i> Withdraw money</h5>
+                </div>
+                <form
+                  method="post"
+                  th:action="@{'/withdrawMoney'}"
+                  sec:authorize="hasAnyRole('USER')"
+                >
+                  <span>Withdraw money from your lottery account.</span>
+                  <div class="input-container">
+                    <input
+                      class="form-control"
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="withdraw"
+                      id="withdraw"
+                      required="required"
+                      placeholder="Amount"
+                    />
+                    <button class="btn btn-primary mt-2" type="submit">
+                      Confirm
+                    </button>
+                  </div>
+                  <div
+                    class="m-2"
+                    th:if="${message}"
+                    th:text="${message}"
+                    th:class="${'alert ' + alertClass}"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-6">
+              <div class="card">
+                <div class="card-title">
+                  <h5>
+                    <i class="bi bi-ticket-perforated-fill"></i> Active bets
+                  </h5>
+                </div>
+                <ul
+                  class="list-group list-group-flush"
+                  sec:authorize="hasAnyRole('USER')"
+                  th:each="bet : ${activeBets}"
+                >
+                  <li class="list-group-item">
+                    <a th:href="@{/betDetails/{betId}(betId=${bet.id})}"
+                      ><i class="bi bi-ticket-perforated-fill"></i>
+                      <span>Event </span>
+                      <span th:text="${bet.getEvent()}"> </span>
+                      <span th:text="${bet.getDate()}"></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="card">
+                <div class="card-title">
+                  <h5><i class="bi bi-archive-fill"></i> Archived bets</h5>
+                </div>
+                <ul
+                  class="list-group list-group-flush"
+                  sec:authorize="hasAnyRole('USER')"
+                  th:each="bet : ${archivedBets}"
+                >
+                  <li class="list-group-item">
+                    <a th:href="@{/betDetails/{betId}(betId=${bet.id})}"
+                      ><i class="bi bi-ticket-perforated-fill"></i>
+                      <span th:text="${bet.getEvent()}"> </span>
+                      <span th:text="${bet.getDate()}"></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-end">
+        <div class="col justify-content-center">
+          <footer th:insert="~{footer.html :: footer}"></footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

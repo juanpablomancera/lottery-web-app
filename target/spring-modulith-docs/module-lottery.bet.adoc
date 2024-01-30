@@ -1,0 +1,22 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`lottery.bet`
+|Spring components
+|_Controllers_
+
+* `l.b.BetController`
+
+_Services_
+
+* `l.b.BetService`
+
+_Others_
+
+* `l.b.BetDataInitializer`
+|Bean references
+|* `l.u.UserService` (in User)
+* `l.l.Lottery` (in Lottery)
+* `l.p.PoolService` (in Pool)
+* `l.r.BetRepository` (in Repositories)
+|===

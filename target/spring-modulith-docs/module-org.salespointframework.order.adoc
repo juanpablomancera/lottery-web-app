@@ -1,0 +1,22 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`org.salespointframework.order`
+|Spring components
+|_Services_
+
+* `o.s.o.OrderManagement` (via `o.s.o.PersistentOrderManagement`)
+|Bean references
+|* `o.s.t.BusinessTime` (in Salespoint :: Time)
+|Aggregate roots
+|* `o.s.o.Order`
+|Published events
+|* `o.s.o.OrderCanceled` created by:
+** `o.s.o.Order.cancel(…)`
+* `o.s.o.OrderCompleted` created by:
+** `o.s.o.Order.cancel(…)`
+** `o.s.o.Order.complete()`
+* `o.s.o.OrderPaid` created by:
+** `o.s.o.Order.markPaid()`
+
+|===

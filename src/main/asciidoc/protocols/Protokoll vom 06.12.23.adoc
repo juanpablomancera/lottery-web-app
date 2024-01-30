@@ -1,0 +1,72 @@
+= Protokoll Gruppe XX
+
+Treffen am 06.12.2023
+
+Ort:      Ort des Treffens +
+Beginn:   13:00 Uhr +
+Ende:     14:30 Uhr
+
+__Schriftführer:__ Jacob Vogler
+
+*Nächstes Treffen:* +
+13.12.2023, 13:00 Uhr, Ort des nächsten Treffens
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Jakub Gawronski (Scrum Master)
+- Jorge Andres Picon Colmenares
+- Juan Pablo Mancera Martinez
+- Carlos Andres Vasquez Munguia
+- Peter Pyshnyy
+- Lena Mareike Wischmann
+- Jacob Lovis Vogler
+- Konrad Löhr
+- Felix Wilde (Tutor)
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+- Besprechung Grundeinsatz 
+- Arbeitseinteilung
+- Vorbereitung Cross-Testing
+- Ablauf der nächsten Woche
+- Hinweis auf die Prüfungen der Entwicklerdokumentation 
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+// Wie ist der Status der im letzten Sprint erstellten Issues/veteilten Aufgaben?
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue  |Aufgabe                                            |Status      |Bemerkung
+|42     |Admin function withdraw from user                  |Closed      |…
+|21     |Add set lottery ticket price                       |Closed      |…
+|13     |Add change amount on bet                           |Closed      |…
+|12     |Add bet details in account                         |Closed      |…
+|11     |Add list of placed bets per user in admin panel    |Closed      |…
+|9      |Add banking functionality                          |Closed      |…
+|8      |Add football database                              |Closed      |…
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+- Hinzufügen der letzten Musskriterien
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue  |Titel |Beschreibung |Verantwortlicher |Status
+|40     |Display winning numbers in admin panel and bet details |…       |Jakub Gawronski          |Open
+|16     |Add amount multiplier                                  |…       |Lena Mareike Wischmann   |Open
+|15     |Change bet payment for football toto                   |…       |Jorge Andres Picon Colmenares        |Open
+|14     |Add enter lottery results                              |…       |Jorge Andres Picon Colmenares        |Open
+|7      |Add longterm bet ticket                                |…       |Jakub Gawronski, Juan Pablo Mancera Martinez        |Open
+|===

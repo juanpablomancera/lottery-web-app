@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.w3.org/1999/xhtml"
+>
+<head>
+    <meta charset="utf-8"/>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+    />
+    <link
+            th:href="@{/resources/css/style.css}"
+            rel="stylesheet"
+            href="../static/resources/css/style.css"
+            type="text/css"
+    />
+
+    <link
+            th:href="@{/resources/css/adminPanel.css}"
+            rel="stylesheet"
+            href="../static/resources/css/style.css"
+            type="text/css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+    <title>Account</title>
+</head>
+<body>
+<nav th:insert="~{navbar.html :: nav}"></nav>
+<div class="container d-flex" th:if="${notices gt 0}">
+    <p>
+        You have been given <b th:text="${notices}"></b> notice(s) for
+        insufficient funding! Please make sure your Account Balance is always
+        sufficient for all open Toto Bets
+    </p>
+</div>
+<div class="account-body" sec:authorize="hasAnyRole('ADMIN')">
+    <div class="container d-flex">
+        <div class="row mt-4">
+            <div class="col">
+                <div class="card shadow-sm" style="height: 100%">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h5><i class="bi bi-piggy-bank-fill"></i>Account balance</h5>
+                        </div>
+                        <div class="card-body">
+                            <b th:text="${accountBalance}"></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm" style="height: 100%">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h5><i class="bi bi-bank2"></i>Deposit money</h5>
+                        </div>
+                        <form
+                                method="post"
+                                th:action="@{'/depositMoneyToUser/' + ${user.getId()}}"
+                                sec:authorize="hasAnyRole('ADMIN')"
+                        >
+                            <div>
+                                <label for="deposit" class="form-label"
+                                >Select the amount you want to deposit.</label
+                                >
+                                <input
+                                        class="form-control"
+                                        type="number"
+                                        min="0"
+                                        step="any"
+                                        name="deposit"
+                                        id="deposit"
+                                        required="required"
+                                        placeholder="Amount"
+                                />
+                            </div>
+                            <button class="btn btn-primary mt-2" type="submit">
+                                Confirm
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm" style="height: 100%">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h5>Withdraw money</h5>
+                        </div>
+                        <form
+                                method="post"
+                                th:action="@{'/withdrawMoneyFromUser/' + ${user.getId()}}"
+                                sec:authorize="hasAnyRole('ADMIN')"
+                        >
+                            <div>
+                                <label for="withdraw" class="form-label"
+                                >Select the amount you want to deposit.</label
+                                >
+                                <input
+                                        class="form-control"
+                                        type="number"
+                                        min="0"
+                                        step="any"
+                                        name="withdraw"
+                                        id="withdraw"
+                                        required="required"
+                                        placeholder="Amount"
+                                />
+                            </div>
+                            <button class="btn btn-primary mt-2" type="submit">
+                                Confirm
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+                class="m-2"
+                th:if="${message}"
+                th:text="${message}"
+                th:class="${'alert ' + alertClass}"
+        />
+
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col">
+            <h3>All bought bets</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Bet Details</th>
+                    <th scope="col">Bet ID</th>
+                    <th scope="col">Draw date</th>
+                    <th scope="col">Event ID</th>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Pool ID</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="bet : ${bets}">
+                    <td>
+                        <a
+                                th:href="@{/betDetailsAdmin/{betId}(betId=${bet.id})}"
+                        >
+                            view details
+                        </a>
+                    </td>
+                    <td th:text="${bet.id}">1</td>
+                    <td th:text="${bet.date}">1</td>
+                    <td th:text="${bet.event}">1</td>
+                    <td th:text="${bet.user}">1</td>
+                    <td th:text="${bet.poolId}">1</td>
+                    <td th:if="${bet.price != 0}" th:text="${bet.price}">?</td>
+                    <td th:if="${bet.price == 0.0}">Price not set</td>
+                    <td th:text="${bet.state}">?</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col">
+            <h3>All Pools</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Pool Name</th>
+                    <th scope="col">Pool ID</th>
+                    <th scope="col">Pool Chef</th>
+                    <th scope="col">Pool Members</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="pool : ${pools}">
+                    <td th:text="${pool.getName()}">1</td>
+                    <td th:text="${pool.getId()}">1</td>
+                    <td th:text="${pool.getPoolChef().userAccount.username}">
+                        1
+                    </td>
+                    <td>
+                        <table>
+                            <tr th:each="member : ${pool.getPoolMembers()}">
+                                <td th:text="${member.userAccount.username}"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

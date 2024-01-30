@@ -1,0 +1,79 @@
+.side-menu {
+    background-color: var(--grey-bg);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+    height: 100%;
+}
+
+.side-menu-item {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.highlight {
+    background-color: var(--secondary);
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.side-menu-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.side-menu-item i {
+    color: var(--accent);
+    margin-right: 10px;
+}
+
+.card {
+    border: none;
+    padding: 10px;
+    background-color: var(--grey-bg);
+    height: 100%;
+}
+
+.card-title i {
+    color: var(--accent);
+    margin-right: 10px;
+}
+
+b {
+    font-weight: 800;
+    font-size: 1.8em;
+}
+
+.bg-secondary {
+    background-color: var(--secondary)!important;
+}
+
+.list-group-item {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    font-size: 1.25em;
+}
+
+.list-group-item a {
+    text-decoration: underline;
+    color: black;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+}

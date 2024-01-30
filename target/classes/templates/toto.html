@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.w3.org/1999/xhtml"
+>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{/resources/css/placeBetStyle.css}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      th:href="@{/resources/css/welcome.css}"
+      rel="stylesheet"
+      href="../static/resources/css/welcome.css"
+      type="text/css"
+    />
+    <link
+      th:href="@{/resources/css/style.css}"
+      rel="stylesheet"
+      href="../static/resources/css/style.css"
+      type="text/css"
+    />
+    <title>Lottery Ticket</title>
+  </head>
+  <body>
+
+    <nav style="width: 100%" th:insert="~{navbar.html :: nav}"></nav>
+    <div style="padding: 0" class="container">
+      <div class="container mt-5 mb-5">
+        <div class="row mt-3 row-cols-2 justify-content-around">
+          <div class="col">
+            <p
+              th:if="${event.type == 'FootballEvent'}"
+              class="fs-1 fst-normal fw-light"
+            >
+              MATCH DAY:
+              <span
+                class="fw-bold"
+                th:text="${event.convertDateFormat(event.getFirstMatchDate()).substring(0,5)}"
+              ></span>
+              —
+              <span
+                class="fw-bold"
+                th:text="${event.convertDateFormat(event.getDrawDate()).substring(0,5)}"
+              ></span>
+            </p>
+          </div>
+          <div class=""></div>
+        </div>
+
+        <div
+          class="row row-cols-2 justify-content-around align-items-end text-start mt-5"
+        >
+          <div
+            class="col-9 d-flex justify-content-center align-items-center flex-column"
+          ></div>
+        </div>
+        <div
+          style="margin-bottom: 75px"
+          class="row row-cols-3 justify-content-around"
+        >
+          <div class="col-3">
+
+            <div
+              class="card rounded-4 border-0"
+              style="box-shadow: 6px 6px 15px grey"
+            >
+              <div class="card-body">
+                <h4 class="card-title fw-bold text-center">Football-TOTO</h4>
+                <ul class="list-unstyled pt-3 pb-3 mx-1 text-left">
+                  <li>
+                    <span
+                      class="bi bi-check"
+                      style="font-weight: bold; font-size: 30px; color: #ff6b00"
+                    ></span>
+                    Bet on Bundesliga 1 & 2
+                  </li>
+                  <li>
+                    <span
+                      class="bi bi-check"
+                      style="font-weight: bold; font-size: 30px; color: #ff6b00"
+                    ></span>
+                    Win up to 616 900 €
+                  </li>
+                  <li>
+                    <span
+                      class="bi bi-check"
+                      style="font-weight: bold; font-size: 30px; color: #ff6b00"
+                    ></span>
+                    Choose 6 games that will draw
+                  </li>
+                  <li>
+                    <span
+                      class="bi bi-check"
+                      style="font-weight: bold; font-size: 30px; color: #ff6b00"
+                    ></span>
+                    6 games with the highest number of goals count
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card border-0" style="background-color: #fffaeb">
+              <div class="card-body">
+                <h5
+                  lass="card-title"
+                  style="font-weight: bold; text-align: justify"
+                >
+                  How to play Football-Toto ?
+                </h5>
+                <div class="col pt-3 pb-3" style="text-align: justify">
+                  <p>
+                    Before purchasing a bet, you can pick 6 games out of 20
+                    upcoming Bundesliga 1 and Bundesliga 2 matches that you
+                    think will end up in a draw (0:0, 1:1 etc.). If your picks
+                    are correct you will win a prize associated with your win
+                    class. All the win tiers and prizes are available in the
+                    table on the right. Note that only 6 matches that ended with
+                    a draw with the highest total of goals are counted as the
+                    winning six. If you want to learn more click on the button
+                    bellow.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mx-auto">
+            <div class="col py-2 pb-3 home-events border-0">
+              <h5 style="text-align: center; font-weight: bold">
+                Lotto Statistics
+              </h5>
+              <table class="table events-table table-striped table-borderless">
+                <thead class="table-light thead-table">
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Win Class</th>
+                    <th scope="col">Winners count</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Win probability</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background-color: #fffaeb">
+                    <td style="width: 8%" class="align-middle">1</td>
+                    <td style="width: 25%" class="align-middle">
+                      6 picks + Super
+                    </td>
+                    <td style="width: 20%" class="align-middle">0</td>
+                    <td style="width: 20%" class="align-middle">400%</td>
+                    <td style="width: 27%" class="align-middle">1:8 145 060</td>
+                  </tr>
+                  <tr style="background-color: #fffaeb">
+                    <td style="width: 8%" class="align-middle">2</td>
+                    <td style="width: 25%" class="align-middle">6 picks</td>
+                    <td style="width: 20%" class="align-middle">0</td>
+                    <td style="width: 20%" class="align-middle">200%</td>
+                    <td style="width: 27%" class="align-middle">1:1 367 510</td>
+                  </tr>
+                  <tr style="background-color: #fffaeb">
+                    <td style="width: 8%" class="align-middle">3</td>
+                    <td style="width: 25%" class="align-middle">
+                      5 picks + Super
+                    </td>
+                    <td style="width: 20%" class="align-middle">6</td>
+                    <td style="width: 20%" class="align-middle">100%</td>
+                    <td style="width: 27%" class="align-middle">1:35 724</td>
+                  </tr>
+                  <tr style="background-color: #fffaeb">
+                    <td style="width: 8%" class="align-middle">4</td>
+                    <td style="width: 25%" class="align-middle">5 picks</td>
+                    <td style="width: 20%" class="align-middle">1 130</td>
+                    <td style="width: 20%" class="align-middle">10%</td>
+                    <td style="width: 27%" class="align-middle">1:733</td>
+                  </tr>
+                  <tr style="background-color: #fffaeb">
+                    <td style="width: 8%" class="align-middle">5</td>
+                    <td style="width: 25%" class="align-middle">
+                      4 picks + Super
+                    </td>
+                    <td style="width: 20%" class="align-middle">2 302</td>
+                    <td style="width: 20%" class="align-middle">5%</td>
+                    <td style="width: 27%" class="align-middle">1:597</td>
+                  </tr>
+                  <tr style="background-color: #fffaeb">
+                    <td style="width: 8%" class="align-middle">6</td>
+                    <td style="width: 25%" class="align-middle">4 picks</td>
+                    <td style="width: 20%" class="align-middle">22 282</td>
+                    <td style="width: 20%" class="align-middle">0%</td>
+                    <td style="width: 27%" class="align-middle">1:48</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <form
+          method="post"
+          role="form"
+          th:action="@{/{eventid}/{poolid}/totobet(eventid = ${eventid}, poolid = ${poolid})}"
+          th:object="${form}"
+        >
+          <div th:if="${!form.isValidCheckboxCount()}">
+            <p class="warning">
+              Please select exactly 6 matches and enter a valid bet amount.
+            </p>
+          </div>
+          <div th:if="${insufficientBalance}">
+            <p class="warning">Insufficient Account Balance.</p>
+          </div>
+          <div th:if="${isTooLate}">
+            <p class="warning">
+              You cannot place a bet less than 24 hours before the draw date of
+              an event.
+            </p>
+          </div>
+          <div class="admin-ticket-view" th:if="${currentUserRole == 'ADMIN'}">
+            ADMIN VIEW. CANNOT PLACE A BET.
+          </div>
+          <div
+            class="admin-ticket-view"
+            th:if="${currentUserRole == 'UNREGISTERED'}"
+          >
+            UNREGISTERED USER. CANNOT PLACE A BET.
+          </div>
+          <input
+            class="buffer"
+            type="checkbox"
+            id="-1"
+            name="match"
+            value="-1"
+            checked="true"
+          />
+
+          <div style="display: flex; justify-content: space-between">
+            <div>
+              <h3 th:if="${event.type == 'FootballEvent'}" class="fw-bold">
+                RESULTS DATE
+                <span
+                  style="text-decoration: underline"
+                  th:text="' ' + ${event.convertDateFormat(event.getDrawDate())}"
+                  >date</span
+                >
+              </h3>
+              <h4 class="card-text">Bundesliga 1/2</h4>
+            </div>
+            <div
+              class="toto-bot"
+              style="align-items: flex-end"
+              th:if="${currentUserRole != 'ADMIN' && currentUserRole != 'UNREGISTERED'}"
+            >
+              <div th:if="${amount}">
+                <div class="toto-amount">
+                  <input
+                    type="number"
+                    name="amount"
+                    id="amount"
+                    required="required"
+                    class="form-control"
+                    placeholder="Amount"
+                    th:if="${amount != null}"
+                    th:step="${amount}"
+                    min="${amount}"
+                  />
+                </div>
+              </div>
+              <div th:unless="${amount}">
+                <div class="toto-amount">
+                  <input
+                    type="number"
+                    name="amount"
+                    id="amount"
+                    required="required"
+                    class="form-control"
+                    placeholder="Amount"
+                    step=".1"
+                    min=".1"
+                  />
+                </div>
+              </div>
+              <div class="toto-submit-btn">
+                <button
+                  style="background-color: #ffc11e"
+                  class="btn mt-2"
+                  type="submit"
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex" class="container-games">
+            <div style="padding: 0 10px 0 0" class="container">
+              <div
+                style="background-color: #ffe79d"
+                class="col py-2 pb-3 home-events border-0"
+              >
+                <div class="card-body">
+                  <table
+                    class="table events-table table-striped table-borderless"
+                  >
+                    <thead class="table-light thead-table">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Home Team</th>
+                        <th scope="col">Away Team</th>
+                        <th scope="col">Pick</th>
+                      </tr>
+                    </thead>
+                    <tr
+                      th:each="matches, matchIndex: ${matches}"
+                      th:if="${matchIndex.index &lt; 9}"
+                    >
+                      <td
+                        style="width: 8%; background-color: #ffe79d"
+                        th:text="${matchIndex.index + 1}"
+                      >
+                        1
+                      </td>
+                      <td th:text="${matches.team1}">Dynamo Dresden</td>
+                      <td th:text="${matches.team2}">Dynamo Kyiv</td>
+                      <td style="padding: 0; vertical-align: bottom">
+                        <input
+                          class="toto-cb"
+                          type="checkbox"
+                          name="match"
+                          style="
+                            width: 25px;
+                            height: 25px;
+                            accent-color: #ff6b00;
+                          "
+                          th:value="${matchIndex.index + 1}"
+                          th:checked="${match1 != null} ? match1: false"
+                        />
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div style="padding: 0 0 0 10px" class="container">
+              <div
+                style="background-color: #ffe79d"
+                class="col py-2 pb-3 home-events border-0"
+              >
+                <div class="card-body">
+                  <table
+                    class="table events-table table-striped table-borderless"
+                  >
+                    <thead class="table-light thead-table">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Home Team</th>
+                        <th scope="col">Away Team</th>
+                        <th scope="col">Pick</th>
+                      </tr>
+                    </thead>
+                    <tr
+                      th:each="matches, matchIndex: ${matches}"
+                      th:if="${matchIndex.index &gt; 8}"
+                    >
+                      <td
+                        style="width: 8%; background-color: #ffe79d"
+                        th:text="${matchIndex.index + 1}"
+                      >
+                        1
+                      </td>
+                      <td th:text="${matches.team1}">Dynamo Dresden</td>
+                      <td th:text="${matches.team2}">Dynamo Kyiv</td>
+                      <td style="padding: 0; vertical-align: bottom">
+                        <input
+                          class="toto-cb"
+                          type="checkbox"
+                          name="match"
+                          style="
+                            width: 25px;
+                            height: 25px;
+                            accent-color: #ff6b00;
+                          "
+                          th:value="${matchIndex.index + 1}"
+                          th:checked="${match1 != null} ? match1: false"
+                        />
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row align-items-end">
+        <div class="col justify-content-center">
+          <footer th:insert="~{footer.html :: footer}"></footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

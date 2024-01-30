@@ -1,0 +1,25 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`org.salespointframework.useraccount`
+|Spring components
+|_Services_
+
+* `o.s.u.UserAccountManagement` (via `o.s.u.PersistentUserAccountManagement`)
+
+_Others_
+
+* `o.s.u.AuthenticationManagement` (via `o.s.u.SpringSecurityAuthenticationManagement`)
+|Aggregate roots
+|* `o.s.u.UserAccount`
+|Value types
+|* `o.s.u.EncryptedPassword`
+* `o.s.u.UnencryptedPassword`
+* `o.s.u.Role`
+|Published events
+|* `o.s.u.UserAccountCreated` created by:
+** `o.s.u.UserAccount.onCreate()`
+
+|Properties
+|* `salespoint.authentication.login-via-email` -- `java.lang.Boolean`, default `false`. Enables the login procedure to use the email address to lookup a user instead of their username. Defaults to `false`.
+|===

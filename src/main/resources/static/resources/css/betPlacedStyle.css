@@ -1,0 +1,21 @@
+body {
+  --primary: #ffc11e;
+  --secondary: #ffe79d;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #fffaeb;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  font-size: 20px;
+}

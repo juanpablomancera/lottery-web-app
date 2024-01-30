@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/resources/css/allbetsStyle.css}" />
+    <title>Alle Bets</title>
+  </head>
+  <nav th:insert="~{navbar.html :: nav}"></nav>
+  <body>
+    <div class="lotto">
+      <h2>LOTTO</h2>
+      <table class="lotto-table">
+        <tr>
+          <th>ID</th>
+          <th>Event</th>
+          <th>User</th>
+          <th>Picked Numbers</th>
+          <th>Super Number</th>
+          <th>Price</th>
+        </tr>
+        <tr th:each="lottobet : ${lottobets}">
+          <td th:text="${lottobet.id}">1</td>
+          <td th:text="${lottobet.event}">Dynamo Dresden</td>
+          <td th:text="${lottobet.user}">Dynamo Kyiv</td>
+          <td>
+            <div class="td-picks">
+              <p
+                th:each="number : ${lottobet.getLotteryNumbers()}"
+                th:text="${number}"
+              ></p>
+            </div>
+          </td>
+          <td th:text="${lottobet.supernumber}">?</td>
+          <td th:text="${lottobet.price}">?</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="toto">
+      <h2>TOTO</h2>
+      <table class="toto-table">
+        <tr>
+          <th>ID</th>
+          <th>Event</th>
+          <th>User</th>
+          <th>Picked Games</th>
+          <th>Amount</th>
+        </tr>
+        <tr th:each="totobet : ${totobets}">
+          <td th:text="${totobet.id}">1</td>
+          <td th:text="${totobet.event}">Dynamo Dresden</td>
+          <td th:text="${totobet.user}">Dynamo Kyiv</td>
+          <td>
+            <div class="td-picks">
+              <p th:each="game : ${totobet.getGames()}" th:text="${game}"></p>
+            </div>
+          </td>
+          <td th:text="${totobet.getPrice()}">?</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

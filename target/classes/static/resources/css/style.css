@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+h3 {
+  margin: 0;
+}
+
+body {
+  --primary: #ffc11e;
+  --secondary: #fff1c8;
+  --grey-bg: rgba(0, 0, 0, 0.05);
+  --accent: #ff6b00;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font: 13px/22px Poppins, Arial, sans-serif;
+  color: #130e01;
+  background: #fffaeb;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.toto-table {
+  width: 100%;
+  text-align: center;
+}
+
+td {
+  height: 30px;
+  vertical-align: middle;
+}
+
+td > input {
+  height: 70%;
+  width: 70%;
+}
+
+.toto-bot {
+  display: flex;
+}
+
+.toto-amount {
+  margin-right: 25px;
+}
+
+.toto-submit-btn {
+  margin-top: 0px;
+}
+
+.warning {
+  color: red;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.buffer {
+  display: none;
+}
+
+.btn-primary {
+  /* background-color: var(--secondary); */
+    color: black;
+  border: none;
+}
+
+.btn-primary:hover {
+   background-color: var(--primary);
+}
+
+.win-color {
+  color: green;
+}
+
+a {
+    color: var(--accent);
+}
+
+.btn-link {
+    color: var(--accent);
+}
+
+.lose-color {
+  color: red;
+}

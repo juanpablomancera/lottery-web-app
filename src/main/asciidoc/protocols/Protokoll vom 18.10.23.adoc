@@ -1,0 +1,64 @@
+= Protokoll Gruppe 27
+
+Treffen am 18.10.2023
+
+Ort:      Ort des Treffens: APB
+Beginn:   13:00 Uhr +
+Ende:     14:30 Uhr
+
+__Schriftführer:__ Konrad Löhr
+
+*Nächstes Treffen:* +
+25.10.2023, 13:00 Uhr, Ort des nächsten Treffens: APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Jakub Gawronski (Scrum Master) (online, da er seinen demokratischen Pflichten nachgeht)
+- Jorge Andres Picon Colmenares
+- Juan Pablo Mancera Martinez
+- Carlos Andres Vasquez Munguia
+- Peter Pyshnyy
+- Lena Mareike Wischmann
+- Jacob Lovis Vogler
+- Konrad Löhr
+- Felix Wilde (Tutor)
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+- Die Bearbeitung des Pflichtenhefts sind wie folgt verteilt worden:Jakub: GUI Prototyp
+Carlos und Mareike: Funktionale Anforderungen und Nicht-Funktionale Anforderungen, first 4 points
+Pablo: Use-Case description
+Konrad: Actors und Use-Case diagram, Acceptance Testing
+Andres und Peter: Punkt 5. UML
+Jacob: Glossary, Zusammenfassung, Offenepunkte
+
+- Es sind viele Fragen aus unserem Fragenkatalog gestellt worden.
+
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+// Wie ist der Status der im letzten Sprint erstellten Issues/veteilten Aufgaben?
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Aufgabe |Status |Bemerkung
+|…     |…       |…      |…
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|…     |…     |…            |…                |…
+|===

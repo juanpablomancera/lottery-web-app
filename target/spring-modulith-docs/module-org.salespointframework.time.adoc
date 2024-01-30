@@ -1,0 +1,15 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`org.salespointframework.time`
+|Spring components
+|_Services_
+
+* `o.s.t.BusinessTime` (via `o.s.t.DefaultBusinessTime`)
+|Published events
+|* `o.s.t.DayHasPassed` created by:
+** `o.s.t.DefaultBusinessTime.emitEventsFor(…)`
+* `o.s.t.MonthHasPassed` created by:
+** `o.s.t.DefaultBusinessTime.emitEventsFor(…)`
+
+|===

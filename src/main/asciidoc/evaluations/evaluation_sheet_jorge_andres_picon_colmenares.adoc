@@ -1,0 +1,60 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2021/22
+// Auch wenn der Bogen nicht anonymisiert ist, dürfen Sie gern Ihre Meinung offen kundtun.
+// Sowohl positive als auch negative Anmerkungen werden gern gesehen und zur stetigen Verbesserung genutzt.
+// Versuchen Sie in dieser Auswertung also stets sowohl Positives wie auch Negatives zu erwähnen.
+
+**Von: Jorge Andres Picon Colmenares**
+
+**Gruppe: 27**
+
+== Was habe ich gelernt / was habe ich nicht gelernt?
+// Ausführung der positiven und negativen Erfahrungen, die im Softwarepraktikum gesammelt wurden
+Während der gesamten Entwicklung dieses Projekts habe ich neue Kenntnisse im Bereich der Teamarbeit sowie im Bereich der
+Programmierung und der technischen Softwareentwicklung erworben. Einerseits habe ich Erfahrungen gesammelt, wie man
+Software in einer Gruppe entwickelt. Ich habe das Gefühl, dass wir eine besondere Gruppe sind, da wir aus Menschen mit
+sechs verschiedenen Nationalitäten bestehen, daher hat mir die Fähigkeit, uns zu teilen und zu organisieren, um diese
+Aufgabe zu erfüllen, gezeigt, wie man in einem Team mit Menschen arbeitet, die sich in ihrer Persönlichkeit aufgrund
+der Kultur ihres Landes von mir unterscheiden. Andererseits habe ich bei diesem Projekt am meisten gelernt, nämlich eine
+Software auf relativ "professionelle" Weise und auf der Grundlage eines Protokolls zu entwickeln und eine Menge Wissen
+anzuwenden, das ich sowohl im Fach "SWT" als auch außerhalb davon gelernt habe.
+Ich lernte, wie man jeden Prozess und jeden Schritt bei der Entwicklung einer Software strukturiert, und ich lernte
+Frameworks wie Spring, Sales Point und HTML-Extras kennen, die ich erforschen und erlernen musste, da viele Dinge relativ
+neu waren.
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+// Kurze Beschreibung der Zusammenarbeit im Team. Was lief gut? Was war verbesserungswürdig? Was würden Sie das nächste Mal anders machen?
+Die Teamarbeit war aus meiner Sicht sehr gut, weil wir alle eine sehr gute Kommunikation miteinander hatten,
+außerdem hatten alle Teilnehmer von Anfang bis Ende eine positive Einstellung, um die Software bestmöglich zu entwickeln,
+d.h. wir hatten alle immer die gleiche Entschlossenheit, die Anforderungen zu erfüllen.
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+// Einschätzung der Arbeit mit den bereitgestellten und zusätzlich genutzten Frameworks. Was War gut? Was war verbesserungswürdig?
+Ich denke, dass es eine gute Idee war, "SPRING" einzuführen, da es bei der Arbeit ein sehr häufig genutztes und wirklich
+nützliches Framework ist. Es war also sehr gut, die Möglichkeit zu haben, in diesem Kurs ein wenig darüber zu lernen.
+Außerdem ist die gute Dokumentation und die Software "VideoShop" als Hilfe eine sehr gute Sache.
+
+Auf der anderen Seite scheint es mir, dass "SalesPoint" in unserer Aufgabe praktisch nicht gebraucht wurde, da es uns
+keinen Nutzen gebracht hat, abgesehen davon, dass es ein TU-Framework ist, das nichts außerhalb davon bringt. Darüber
+hinaus ist die Dokumentation von SalesPoint unzureichend. Meiner Meinung nach wäre es besser, es aus dieser Praxis zu
+entfernen und eine andere zu implementieren.
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+// Möglichst mit Beschreibung, warum die Umsetzung des von Ihnen angebrachten Vorschlages nötig ist.
+Ich persönlich würde "Sales Point" entfernen und einen neuen, produktiveren Framework hinzufügen.
+
+Ich würde die Dokumentation verbessern, wenn möglich mehr Videos oder technische Erklärungen zur Verwendung des FrameWork
+erstellen. Da man davon ausgehen kann, dass viele Leute nicht nur wenig Ahnung vom Programmieren haben, wäre es nett,
+diesen Leuten zusätzliche Hilfe zu geben, damit sie lernen und die Praxis besser ausführen können.
+
+== Feedback für den Tutor
+// Fühlten Sie sich durch den vom Lehrstuhl bereitgestellten Tutor gut betreut? Was war positiv? Was war verbesserungswürdig?
+Felix ist ein wirklich toller Tutor, wir hatten wirklich Glück, ihn als Tutor zu bekommen, ich mag seine Einstellung zu
+jeder Zeit, er hat seine Aufgabe und Verantwortung erfüllt, er war sehr nett und freundlich.
+
+Das einzige, was ich mir von ihm gewünscht hätte, ist, dass er vielleicht jedem von uns persönlich ein detaillierteres
+Feedback gegeben hätte. In dem Sinne, dass er uns hilft, die Software zu verbessern, was uns wiederum hilft, uns
+persönlich zu verbessern. Da wir alles alleine gemacht haben, wäre es produktiver, wenn der Tutor während des Kurses
+
+== Sonstiges und Anmerkungen
+// Welche Aspekte fanden in den oben genannten Punkten keine Erwähnung?
+Kein Kommentar

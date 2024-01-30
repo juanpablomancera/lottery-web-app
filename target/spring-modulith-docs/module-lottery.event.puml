@@ -1,0 +1,50 @@
+@startuml
+title Event
+
+top to bottom direction
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container_Boundary("Application.Application_boundary", "Application", $tags="") {
+  Component(Application.Application.Bet, "Bet", "Module", "", $tags="")
+  Component(Application.Application.Pool, "Pool", "Module", "", $tags="")
+  Component(Application.Application.SalespointCore, "Salespoint :: Core", "Module", "", $tags="")
+  Component(Application.Application.Lottery, "Lottery", "Module", "", $tags="")
+  Component(Application.Application.SalespointTime, "Salespoint :: Time", "Module", "", $tags="")
+  Component(Application.Application.Event, "Event", "Module", "", $tags="")
+  Component(Application.Application.User, "User", "Module", "", $tags="")
+}
+
+Rel_D(Application.Application.Lottery, Application.Application.SalespointTime, "uses", $tags="")
+Rel_D(Application.Application.Lottery, Application.Application.User, "uses", $tags="")
+Rel_D(Application.Application.Lottery, Application.Application.Bet, "uses", $tags="")
+Rel_D(Application.Application.Lottery, Application.Application.Pool, "uses", $tags="")
+Rel_D(Application.Application.Bet, Application.Application.SalespointTime, "depends on", $tags="")
+Rel_D(Application.Application.Bet, Application.Application.Event, "depends on", $tags="")
+Rel_D(Application.Application.Bet, Application.Application.SalespointCore, "depends on", $tags="")
+Rel_D(Application.Application.Bet, Application.Application.User, "uses", $tags="")
+Rel_D(Application.Application.Bet, Application.Application.Lottery, "uses", $tags="")
+Rel_D(Application.Application.Bet, Application.Application.Pool, "uses", $tags="")
+Rel_D(Application.Application.Pool, Application.Application.Event, "depends on", $tags="")
+Rel_D(Application.Application.Pool, Application.Application.SalespointCore, "depends on", $tags="")
+Rel_D(Application.Application.Pool, Application.Application.User, "uses", $tags="")
+Rel_D(Application.Application.Pool, Application.Application.Lottery, "uses", $tags="")
+Rel_D(Application.Application.Pool, Application.Application.Bet, "uses", $tags="")
+Rel_D(Application.Application.Event, Application.Application.User, "depends on", $tags="")
+Rel_D(Application.Application.Event, Application.Application.Bet, "depends on", $tags="")
+Rel_D(Application.Application.Event, Application.Application.Pool, "depends on", $tags="")
+Rel_D(Application.Application.Event, Application.Application.SalespointCore, "depends on", $tags="")
+Rel_D(Application.Application.Event, Application.Application.SalespointTime, "depends on", $tags="")
+Rel_D(Application.Application.Event, Application.Application.Lottery, "uses", $tags="")
+Rel_D(Application.Application.User, Application.Application.Event, "depends on", $tags="")
+Rel_D(Application.Application.User, Application.Application.SalespointCore, "depends on", $tags="")
+Rel_D(Application.Application.User, Application.Application.Lottery, "uses", $tags="")
+Rel_D(Application.Application.User, Application.Application.Bet, "uses", $tags="")
+Rel_D(Application.Application.User, Application.Application.Pool, "uses", $tags="")
+Rel_D(Application.Application.Lottery, Application.Application.SalespointTime, "listens to", $tags="")
+Rel_D(Application.Application.Lottery, Application.Application.Event, "depends on", $tags="")
+
+SHOW_LEGEND(true)
+@enduml

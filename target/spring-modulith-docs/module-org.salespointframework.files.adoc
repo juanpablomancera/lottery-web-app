@@ -1,0 +1,17 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`org.salespointframework.files`
+|Spring components
+|_Services_
+
+* `o.s.f.FileStorage` (via `o.s.f.WorkspaceStorage`)
+|Value types
+|* `o.s.f.NamedBinary`
+|Published events
+|* `o.s.f.FileStored` created by:
+** `o.s.f.WorkspaceStorage.store(…)`
+
+|Properties
+|* `salespoint.storage.location` -- `java.nio.file.Path`, default `${user.home}/.salespoint/uploads`. Folder location for storing files.
+|===

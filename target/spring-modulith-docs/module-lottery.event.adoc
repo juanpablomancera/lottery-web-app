@@ -1,0 +1,7 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`lottery.event`
+|Bean references
+|* `l.l.Lottery` (in Lottery)
+|===

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.w3.org/1999/xhtml"
+>
+  <head th:fragment="headerfiles">
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      th:href="@{/resources/css/navbar.css}"
+      rel="stylesheet"
+      href="../static/resources/css/navbar.css"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav
+        class="navbar mb-5 navbar-expand-lg navbar-light"
+        style="background-color: transparent"
+        th:fragment="navbar"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+            <img
+              src="/resources/css/Img/logo.png"
+              alt="Logo"
+              style="width: 80%; height: auto"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul
+              class="navbar-nav ms-auto text-center fs-6 fw-bold my-navbar"
+              style="text-align: center"
+            >
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  sec:authorize="isAuthenticated()"
+                  href="/"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  sec:authorize="isAuthenticated()"
+                  href="/lottery"
+                  >Events</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  sec:authorize="hasAnyRole('ADMIN')"
+                  href="/poolhome"
+                  >Pools</a
+                >
+              </li>
+              <div
+                sec:authorize="!isAuthenticated()"
+                class="rounded"
+                style="background-color: #ffc11e"
+              >
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+              </div>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="/register"
+                  sec:authorize="!isAuthenticated()"
+                  >Register</a
+                >
+              </li>
+              <div sec:authorize="isAuthenticated()" class="rounded" style=" margin-left: 5px; margin-right: 5px; border: 3px solid #ffc11e;">
+                <li class="nav-item">
+                    <form
+                      class="nav-item"
+                      sec:authorize="isAuthenticated()"
+                      th:action="@{/logout}"
+                      method="post"
+                    >
+                      <button type="submit" class="btn">Log out</button>
+                    </form>
+                </li>
+              </div>
+              <div class="rounded">
+                <li class="nav-item">
+                  <a
+                    class="nav-link btn fw-bold"
+                    style="
+                      border: 2px solid #ff6b00;
+                      background-color: #ff6b00;
+                      margin-left: 5px;
+                      margin-right: 5px;
+                    "
+                    th:text="' ' + ${currentUserName} + ' '"
+                    sec:authorize="not hasAnyRole('ADMIN') and isAuthenticated()"
+                    href="/account"
+                    >Not Logged In</a
+                  >
+                </li>
+              </div>
+              <div sec:authorize="hasAnyRole('ADMIN')" class="rounded">
+                <li class="nav-item">
+                  <a
+                    class="nav-link btn fw-bold"
+                    style="
+                      border: 3px solid #ff6b00;
+                      margin-left: 5px;
+                      margin-right: 5px;
+                      background-color: #ff6b00;
+                    "
+                    aria-current="page"
+                    href="/adminPanel"
+                    >Admin Panel</a
+                  >
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>

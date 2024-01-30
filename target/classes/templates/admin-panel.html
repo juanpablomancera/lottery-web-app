@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+    />
+    <link
+            th:href="@{/resources/css/style.css}"
+            rel="stylesheet"
+            href="../static/resources/css/style.css"
+            type="text/css"
+    />
+
+    <link
+            th:href="@{/resources/css/adminPanel.css}"
+            rel="stylesheet"
+            href="../static/resources/css/style.css"
+            type="text/css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+    <meta charset="UTF-8"/>
+    <title>Admin Panel</title>
+</head>
+<body>
+<nav th:insert="~{navbar.html :: nav}"></nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+            <div class="side-menu">
+                <div class="side-menu-item highlight mb-4">
+                    <span>
+                        <i class="bi bi-person-fill"></i>
+                        <span th:text="${currentUserName}"></span>
+                    </span>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="side-menu-item">
+                        <span class="flex-style">
+                            <i class="bi bi-calendar-date-fill"></i>
+                            <form method="post" th:action="@{/lottery/skipday}">
+                                  <input
+                                          class="submit-link"
+                                          type="submit"
+                                          value="Skip day"
+                                  />
+                            </form>
+                        </span>
+                    </li>
+
+                    <li class="side-menu-item">
+                        <span>
+                            <i class="bi bi-ticket-fill"></i>
+                            <a th:href="@{/lotto}">Add new lotto event</a>
+                        </span>
+                    </li>
+
+                    <li class="side-menu-item">
+                        <span>
+                            <i class="bi bi-circle-fill"></i>
+                            <a th:href="@{/toto}">Add new toto event</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col-3">
+                    <div class="card bg-secondary">
+                        <div class="card-title">
+                            <h5><i class="bi bi-graph-up"></i> Income</h5>
+                        </div>
+                        <div class="card-body">
+                            <b class="text-success" th:text="${income}"></b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="card bg-secondary">
+                        <div class="card-title">
+                            <h5><i class="bi bi-graph-down"></i> Expenses</h5>
+                        </div>
+                        <div class="card-body">
+                            <b class="text-danger" th:text="${expenses}"></b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="card bg-secondary">
+                        <div class="card-title">
+                            <h5><i class="bi bi-people-fill"></i> Active users</h5>
+                        </div>
+                        <div class="card-body">
+                            <b th:text="${numberOfUsers}"></b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="card bg-secondary">
+                        <div class="card-title">
+                            <h5><i class="bi bi-clock"></i> Current time</h5>
+                        </div>
+                        <div class="card-body">
+                            <b th:text="${time}"></b>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-6">
+                    <h3>Active events list:</h3>
+                    <table id="events" class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Type</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Draw date</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tr th:each="event: ${activeEvents}">
+                            <td class="align-middle" th:text="${event.type}"></td>
+                            <td class="align-middle" th:text="${event.id}"></td>
+                            <td class="align-middle" th:text="${event.drawDate}"></td>
+                            <td>
+                                <div th:if="${event.getType().equals('LottoEvent')}">
+                                    <form
+                                            method="post"
+                                            th:action="@{/adminPanel/{event-type}/{id}(id=${event.id}, event-type=${event.type})}"
+                                    >
+                                        <input
+                                                type="submit"
+                                                class="btn btn-link"
+                                                value="Draw event manually"
+                                        />
+                                    </form>
+                                </div>
+                                <div th:if="${event.getType().equals('FootballEvent')}">
+                                    <form
+                                            method="post"
+                                            th:action="@{/lottery/draw/{id}(id = ${event.id})}"
+                                    >
+                                        <input
+                                                type="submit"
+                                                class="btn btn-link"
+                                                value="Draw event manually"
+                                        />
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="col-6">
+                    <h3>Inactive events list:</h3>
+                    <table id="inactive-events" class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Type</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Draw date</th>
+                            <th scope="col">Winning numbers</th>
+                        </tr>
+                        </thead>
+                        <tr th:each="event: ${inactiveEvents}">
+                            <td class="align-middle" th:text="${event.type}"></td>
+                            <td class="align-middle" th:text="${event.id}"></td>
+                            <td class="align-middle" th:text="${event.drawDate}"></td>
+                            <td
+                                    th:if="${event.getType().equals('FootballEvent')}"
+                                    class="align-middle"
+                                    th:text="${event.adminWinningNumbersString}"
+                            ></td>
+                            <td
+                                    class="align-middle"
+                                    th:if="${event.getType().equals('LottoEvent')}"
+                            >
+                                <div style="display: flex">
+                                    <p
+                                            th:each="number : ${event.adminWinningNumbersString}"
+                                            th:text="${number}"
+                                            style="padding-right: 8px; margin: auto 0"
+                                    ></p>
+                                    <p
+                                            style="padding-right: 8px; margin: auto 0"
+                                            th:text="${'(' + event.getSupernumber() + ')'}"
+                                    ></p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-3">
+                    <h3>Add new admin:</h3>
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+
+                            <form
+                                    method="post"
+                                    role="form"
+                                    th:action="@{/createAdmin}"
+                                    th:object="${registrationForm}"
+                            >
+                                <label for="name" class="form-label">Name</label>
+                                <input
+                                        id="name"
+                                        class="form-control"
+                                        type="text"
+                                        th:field="*{name}"
+                                        th:errorclass="fieldError"
+                                        required="required"
+                                />
+                                <label for="email" class="form-label">Email</label>
+                                <input
+                                        id="email"
+                                        type="email"
+                                        class="form-control"
+                                        th:field="*{email}"
+                                        th:errorclass="fieldError"
+                                        required="required"
+                                />
+                                <label for="password" class="form-label">Password</label>
+                                <input
+                                        id="password"
+                                        type="password"
+                                        class="form-control"
+                                        th:field="*{password}"
+                                        th:errorclass="fieldError"
+                                        required="required"
+                                />
+                                <button type="submit" class="btn btn-primary mt-2">
+                                    Create admin
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <h3>Users overview:</h3>
+                    <table class="table shadow-sm">
+                        <thead>
+                        <tr>
+                            <th scope="col">User details</th>
+                            <th scope="col">User ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Roles</th>
+                            <th scope="col">Balance</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody th:remove="all-but-first">
+                        <tr th:each=" user : ${userList}">
+                            <td>
+                                <a
+                                        th:href="@{/userDetails/{userId}(userId=${user.getId()})}"
+                                >
+                                    View details
+                                </a>
+                            </td>
+                            <td class="align-middle" th:text="${user.getId()}">ID</td>
+                            <td
+                                    class="align-middle"
+                                    th:text="${user.userAccount.username}"
+                            >
+                                Paul
+                            </td>
+                            <td
+                                    class="align-middle"
+                                    th:text="${user.userAccount.email}"
+                            >
+                                example@example.com
+                            </td>
+                            <td class="align-middle">
+                      <span
+                              style="margin-right: 3px"
+                              th:each=" role : ${user.userAccount.getRoles().toList()}"
+                              class="align-middle"
+                              th:text="${role}"
+                      >role</span
+                      >
+                            </td>
+                            <td
+                                    class="align-middle"
+                                    th:text="${user.getAccountState()}"
+                            ></td>
+                            <td>
+                                <form
+                                        th:action="@{'/deleteUser/' + ${user.getId()}}"
+                                        method="post"
+                                >
+                                    <button class="btn btn-link" type="submit">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <div
+                                th:if="${message}"
+                                th:text="${message}"
+                                th:class="${'alert ' + alertClass}"
+                        />
+                    </table>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-6">
+                    <h3>All lotto bets:</h3>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Bet ID</th>
+                            <th scope="col">Event ID</th>
+                            <th scope="col">User ID</th>
+                            <th scope="col">Pool ID</th>
+                            <th scope="col">Picked Numbers</th>
+                            <th scope="col">Super Number</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="lottobet : ${lottobets}">
+                            <td th:text="${lottobet.id}">1</td>
+                            <td th:text="${lottobet.event}">1</td>
+                            <td th:text="${lottobet.user}">1</td>
+                            <td th:text="${lottobet.poolId}">1</td>
+                            <td>
+                                <div>
+                    <span
+                            style="margin-right: 3px"
+                            th:each="number : ${lottobet.getLotteryNumbers()}"
+                            th:text="${number}"
+                    ></span>
+                                </div>
+                            </td>
+                            <td th:text="${lottobet.supernumber}">?</td>
+                            <td th:text="${lottobet.price}">?</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-6">
+                    <h3>All football toto bets:</h3>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Bet ID</th>
+                            <th scope="col">Event ID</th>
+                            <th scope="col">User ID</th>
+                            <th scope="col">Pool ID</th>
+                            <th scope="col">Picked Games</th>
+                            <th scope="col">Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="totobet : ${totobets}">
+                            <td th:text="${totobet.id}">1</td>
+                            <td th:text="${totobet.event}">1</td>
+                            <td th:text="${totobet.user}">1</td>
+                            <td th:text="${totobet.poolId}">1</td>
+                            <td>
+                                <div>
+                    <span
+                            style="margin-right: 3px"
+                            th:each="game : ${totobet.getGames()}"
+                            th:text="${game}"
+                    ></span>
+                                </div>
+                            </td>
+                            <td th:text="${totobet.price}">?</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row align-items-end">
+        <div class="col justify-content-center">
+            <footer th:insert="~{footer.html :: footer}"></footer>
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="container mx-auto">
+  <div class="row mt-2">
+    <h3>Event overview:</h3>
+    <div class="col">
+      <div class="card shadow-sm">
+        <div class="card-body" style="height: 100%">
+          <h5 class="card-title">Control panel</h5>
+          <div class="card-text">
+            Here are all the possible actions available in the prototype.
+            You can add new events, which will be than automatically drawn
+            up and calculated based on time. For testing you can use the
+            "Skip forward a day" to shift the internal clock by 24 hours
+            forward.
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li
+            class="list-group-item d-flex flex-row justify-content-between align-items-center"
+          >
+            <h5 class="mb-0">
+              Current date: <span th:text="${time}"></span>
+            </h5>
+            <form method="post" th:action="@{/lottery/skipday}">
+              <input
+                class="btn btn-outline-secondary"
+                type="submit"
+                value="Skip forward a day"
+              />
+            </form>
+          </li>
+        </ul>
+        <div class="card-body">
+          <a href="add-toto-event.html" class="card-link" th:href="@{/toto}"
+            >Add Football Toto event</a
+          >
+          <a
+            href="<li class="side-menu-item">
+                        <span>
+                            <i class="bi bi-people-fill"></i>
+                            <a th:href="@{/pool/{id}(id=${pool.id})}" th:text="${pool.name}"></a>
+                        </span>
+                    </li>"
+            class="card-link"
+            th:href="@{/lotto}"
+            >Add lotto event</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow-sm" style="height: 100%">
+        <div class="card-body">
+          <h5 class="card-title">Financial overview</h5>
+          <div class="card-text">
+            Here the total income and expenses can be seen. They are
+            calculated based on the amount of tickets sold minus all the
+            prizes that had to be paid.
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <b>Income: </b
+            ><span class="text-success" th:text="${income}"
+              >Income value</span
+            >
+          </li>
+          <li class="list-group-item">
+            <b>Expenses: </b
+            ><span class="text-danger" th:text="${expenses}"
+              >Expenses value</span
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <h3>Active events list:</h3>
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <table id="events" class="table">
+          <thead>
+            <tr>
+              <th scope="col">Type</th>
+              <th scope="col">ID</th>
+              <th scope="col">Draw date</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tr th:each="event: ${activeEvents}">
+            <td class="align-middle" th:text="${event.type}"></td>
+            <td class="align-middle" th:text="${event.id}"></td>
+            <td class="align-middle" th:text="${event.drawDate}"></td>
+            <td>
+              <div th:if="${event.getType().equals('LottoEvent')}">
+                <form
+                  method="post"
+                  th:action="@{/adminPanel/{event-type}/{id}(id=${event.id}, event-type=${event.type})}"
+                >
+                  <input
+                    type="submit"
+                    class="btn btn-link"
+                    value="Draw event manually"
+                  />
+                </form>
+              </div>
+              <div th:if="${event.getType().equals('FootballEvent')}">
+                <form
+                  method="post"
+                  th:action="@{/lottery/draw/{id}(id = ${event.id})}"
+                >
+                  <input
+                    type="submit"
+                    class="btn btn-link"
+                    value="Draw event manually"
+                  />
+                </form>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <h3>Inactive events list:</h3>
+    <div clas="card shadow-sm">
+      <div class="card-body">
+        <table id="inactive-events" class="table">
+          <thead>
+            <tr>
+              <th scope="col">Type</th>
+              <th scope="col">ID</th>
+              <th scope="col">Draw date</th>
+              <th scope="col">Winning numbers</th>
+            </tr>
+          </thead>
+          <tr th:each="event: ${inactiveEvents}">
+            <td class="align-middle" th:text="${event.type}"></td>
+            <td class="align-middle" th:text="${event.id}"></td>
+            <td class="align-middle" th:text="${event.drawDate}"></td>
+            <td
+              th:if="${event.getType().equals('FootballEvent')}"
+              class="align-middle"
+              th:text="${event.adminWinningNumbersString}"
+            ></td>
+            <td
+              class="align-middle"
+              th:if="${event.getType().equals('LottoEvent')}"
+            >
+              <div style="display: flex">
+                <p
+                  th:each="number : ${event.adminWinningNumbersString}"
+                  th:text="${number}"
+                  style="padding-right: 8px; margin: auto 0"
+                ></p>
+                <p
+                  style="padding-right: 8px; margin: auto 0"
+                  th:text="${'(' + event.getSupernumber() + ')'}"
+                ></p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <h3>Users overview:</h3>
+    <div class="col" style="max-width: 300px">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">New admin</h5>
+          <form
+            method="post"
+            role="form"
+            th:action="@{/createAdmin}"
+            th:object="${registrationForm}"
+          >
+            <label for="name" class="form-label">Name</label>
+            <input
+              id="name"
+              class="form-control"
+              type="text"
+              th:field="*{name}"
+              th:errorclass="fieldError"
+              required="required"
+            />
+            <label for="email" class="form-label">Email</label>
+            <input
+              id="email"
+              type="email"
+              class="form-control"
+              th:field="*{email}"
+              th:errorclass="fieldError"
+              required="required"
+            />
+            <label for="password" class="form-label">Password</label>
+            <input
+              id="password"
+              type="password"
+              class="form-control"
+              th:field="*{password}"
+              th:errorclass="fieldError"
+              required="required"
+            />
+            <button type="submit" class="btn btn-primary mt-2">
+              Create admin
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <table class="table shadow-sm">
+            <thead>
+              <tr>
+                <th scope="col">User details</th>
+                <th scope="col">User ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Roles</th>
+                <th scope="col">Balance</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody th:remove="all-but-first">
+              <tr th:each=" user : ${userList}">
+                <td>
+                  <a
+                    th:href="@{/userDetails/{userId}(userId=${user.getId()})}"
+                  >
+                    view details
+                  </a>
+                </td>
+                <td class="align-middle" th:text="${user.getId()}">ID</td>
+                <td
+                  class="align-middle"
+                  th:text="${user.userAccount.username}"
+                >
+                  Paul
+                </td>
+                <td
+                  class="align-middle"
+                  th:text="${user.userAccount.email}"
+                >
+                  example@example.com
+                </td>
+                <td class="align-middle">
+                  <span
+                    style="margin-right: 3px"
+                    th:each=" role : ${user.userAccount.getRoles().toList()}"
+                    class="align-middle"
+                    th:text="${role}"
+                    >role</span
+                  >
+                </td>
+                <td
+                  class="align-middle"
+                  th:text="${user.getAccountState()}"
+                ></td>
+                <td>
+                  <form
+                    th:action="@{'/deleteUser/' + ${user.getId()}}"
+                    method="post"
+                  >
+                    <button class="btn btn-link" type="submit">
+                      delete
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+            <div
+              th:if="${message}"
+              th:text="${message}"
+              th:class="${'alert ' + alertClass}"
+            />
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <h3>All lotto bets</h3>
+      <div class="card">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Bet ID</th>
+                <th scope="col">Event ID</th>
+                <th scope="col">User ID</th>
+                <th scope="col">Pool ID</th>
+                <th scope="col">Picked Numbers</th>
+                <th scope="col">Super Number</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="lottobet : ${lottobets}">
+                <td th:text="${lottobet.id}">1</td>
+                <td th:text="${lottobet.event}">1</td>
+                <td th:text="${lottobet.user}">1</td>
+                <td th:text="${lottobet.poolId}">1</td>
+                <td>
+                  <div>
+                    <span
+                      style="margin-right: 3px"
+                      th:each="number : ${lottobet.getLotteryNumbers()}"
+                      th:text="${number}"
+                    ></span>
+                  </div>
+                </td>
+                <td th:text="${lottobet.supernumber}">?</td>
+                <td th:text="${lottobet.price}">?</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <h3>All football toto bets</h3>
+      <div class="card">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Bet ID</th>
+                <th scope="col">Event ID</th>
+                <th scope="col">User ID</th>
+                <th scope="col">Pool ID</th>
+                <th scope="col">Picked Games</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="totobet : ${totobets}">
+                <td th:text="${totobet.id}">1</td>
+                <td th:text="${totobet.event}">1</td>
+                <td th:text="${totobet.user}">1</td>
+                <td th:text="${totobet.poolId}">1</td>
+                <td>
+                  <div>
+                    <span
+                      style="margin-right: 3px"
+                      th:each="game : ${totobet.getGames()}"
+                      th:text="${game}"
+                    ></span>
+                  </div>
+                </td>
+                <td th:text="${totobet.price}">?</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>
