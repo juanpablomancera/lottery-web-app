@@ -1,7 +1,7 @@
-# Make your own luck
+# Make Your Own Luck
 
 ## Description
-Make you own luck (_Mach dein Glück_) is a online lottery and football betting game. It was created for the TU Dresden Software Praktikum 2023/2024 university course.
+_Make Your Own Luck_ (_Mach dein Glück_) is a online lottery and football betting game. It was created for the TU Dresden Software Praktikum 2023/2024 university course.
 
 The platform allows user to take part in weekly lotteries in a for of 6 numbers out of 49 with a super number and also bet on football games form the German Bundesliga 1 & 2. What's more it also allows for creation of private betting communities where the winnings are divided among the members of the betting pool.
 
